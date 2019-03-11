@@ -10,6 +10,8 @@
 /************************************************************************/
 #pragma once
 #include "IMiscellaneous.h"
+#include "Module\IModuleManager.h"
+
 
 namespace Core
 {
@@ -28,6 +30,12 @@ namespace Core
 		@breif		初始化框架
 		*/
 		void					Initialization();
+
+
+		/**
+		@breif		获取模块管理器
+		*/
+		IModuleManager*			GetModuleManager();
 
 
 		/**

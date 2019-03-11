@@ -20,10 +20,12 @@ file(
     ALL_CODES
 	"${SRC_Path}/src/*.h"
 	"${SRC_Path}/src/*.cpp"
+	"${SRC_Path}/src/Module/*.cpp"
 	"${SRC_Path}/Include/*.h"
     "${SRC_Path}/Include/EBus/*.h"
 	"${SRC_Path}/Include/Memory/*.h"
 	"${SRC_Path}/Include/ByteArray/*.h"
+	"${SRC_Path}/Include/Module/*.h"
 )
 
 #…Ë÷√libø‚Œƒº˛º–
@@ -45,7 +47,9 @@ set_target_properties(${ENGINE_PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY
 set(REG_EXT "[^/]*([.]cpp|[.]c|[.]h|[.]hpp|[.]vs|[.]fs)$")
 
 source_group("src" REGULAR_EXPRESSION "${SRC_Path}/src/${REG_EXT}")
+source_group("src\\Module" REGULAR_EXPRESSION "${SRC_Path}/src/Module/${REG_EXT}")
 source_group("Include" REGULAR_EXPRESSION "${SRC_Path}/Include/${REG_EXT}")
 source_group("Include\\EBus" REGULAR_EXPRESSION "${SRC_Path}/Include/EBus/${REG_EXT}")
 source_group("Include\\Memory" REGULAR_EXPRESSION "${SRC_Path}/Include/Memory/${REG_EXT}")
 source_group("Include\\ByteArray" REGULAR_EXPRESSION "${SRC_Path}/Include/ByteArray/${REG_EXT}")
+source_group("Include\\Module" REGULAR_EXPRESSION "${SRC_Path}/Include/Module/${REG_EXT}")

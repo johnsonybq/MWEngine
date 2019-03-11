@@ -1,4 +1,5 @@
 #include "CoreManager.h"
+#include "Module\ModuleManager.h"
 
 namespace Core
 {
@@ -16,6 +17,11 @@ namespace Core
 	void CoreManager::Initialization()
 	{
 
+	}
+
+	IModuleManager * CoreManager::GetModuleManager()
+	{
+		return ModuleManager::GetInstance();
 	}
 
 
