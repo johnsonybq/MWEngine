@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 #include <string>
-#include "IMiscellaneous.h"
+#include "MWCore.h"
 #include "Module\ModuleData.h"
 #include "Module\IModuleManager.h"
 

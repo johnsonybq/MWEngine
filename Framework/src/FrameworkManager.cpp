@@ -1,6 +1,6 @@
 #include "FrameworkManager.h"
 #include "Entity\EntitySystem.h"
-#include "Asset\AssetSystem.h"
+//#include "Asset\AssetSystem.h"
 
 namespace Framework
 {
@@ -17,15 +17,15 @@ namespace Framework
 
 	void FrameworkManager::Initialization()
 	{
-		AssetSystem::GetInstance()->Initialization();
+		//AssetSystem::GetInstance()->Initialization();
 		EntitySystem::GetInstance()->Initialization();
 	}
 
 
-	IAssetSystem * FrameworkManager::GetAssetSystem()
+	/*IAssetSystem * FrameworkManager::GetAssetSystem()
 	{
 		return AssetSystem::GetInstance();
-	}
+	}*/
 
 
 	IEntitySystem * FrameworkManager::GetEntitySystem()

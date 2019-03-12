@@ -1,12 +1,13 @@
 #pragma once
-#include <GLM\integer.hpp>
+//#include <GLM\integer.hpp>
 
 namespace Framework
 {
-	typedef		glm::uint UUID;
+	//typedef		glm::uint UUID;
+	typedef		int UUID;
 	#define		INVALID_UUID 0xffffffff
 
-	using		EntityID = UUID;
+	using		EntityID = int;
 
 	#define PURE =0
 

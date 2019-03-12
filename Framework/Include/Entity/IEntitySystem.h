@@ -13,7 +13,7 @@
 #include <string>
 #include "Entity.h"
 #include "ISystem.h"
-#include "../EBus/EBus.h"
+#include "EBus\EBus.h"
 
 
 namespace Framework
@@ -115,7 +115,7 @@ namespace Framework
 
 	};
 
-	using EntityEBus = EBus<IEntitySystem>;
+	using EntityEBus = Core::EBus<IEntitySystem>;
 
 
 
@@ -160,6 +160,6 @@ namespace Framework
 		virtual void			OnEntityDeactivate(EntityID& id) = 0;
 	};
 
-	using EntityNotifyEBus = EBus<IEntityNotify>;
+	using EntityNotifyEBus = Core::EBus<IEntityNotify>;
 
 }

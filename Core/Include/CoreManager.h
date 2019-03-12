@@ -9,7 +9,7 @@
 */
 /************************************************************************/
 #pragma once
-#include "IMiscellaneous.h"
+#include "MWCore.h"
 #include "Module\IModuleManager.h"
 
 

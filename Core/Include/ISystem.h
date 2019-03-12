@@ -22,13 +22,13 @@ namespace Core
 		/**
 		@breif		³õÊ¼»¯
 		*/
-		virtual	void				Initialization() PURE;
+		virtual	void				Initialization() PURE_VIRTUAL;
 
 
 		/**
 		@breif		Ïú»Ù
 		*/
-		virtual	void				Destory() PURE;
+		virtual	void				Destory() PURE_VIRTUAL;
 
 
 	};

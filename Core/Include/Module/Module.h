@@ -1,5 +1,5 @@
 #pragma once
-#include "IMiscellaneous.h"
+#include "MWCore.h"
 
 namespace Core
 {

@@ -7,6 +7,7 @@ project(${ENGINE_PROJECT_NAME})
 
 #设置Include文件夹
 include_directories(${CMAKE_CURRENT_LIST_DIR}/Include)
+include_directories(${CMAKE_CURRENT_LIST_DIR}/../Core/Include)
 
 #定义源文件目录
 # 设置代码夹子
@@ -27,13 +28,8 @@ file(
 )
 
 #设置lib库文件夹
-#link_directories(${CMAKE_CURRENT_LIST_DIR}/lib)
-#link_libraries(glew32s.lib) 
-#link_libraries(assimp.lib)
-#link_libraries(glfw3.lib) 
-#link_libraries(SOIL.lib) 
-#link_libraries(GLAD.lib) 
-#link_libraries(STB_IMAGE.lib) 
+link_directories(${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/dll)
+link_libraries(Core.dll) 
 
 #add_executable(Framework ${ALL_CODES})
 #add_library(MWCore ${ALL_CODES})

@@ -10,7 +10,7 @@
 /************************************************************************/
 #pragma once
 #include "Entity\IEntitySystem.h"
-#include "Asset\IAssetSystem.h"
+//#include "Asset\IAssetSystem.h"
 
 
 namespace Framework
@@ -35,7 +35,7 @@ namespace Framework
 		/**
 		@breif		获取资源系统
 		*/
-		IAssetSystem*			GetAssetSystem();
+		//IAssetSystem*			GetAssetSystem();
 
 
 		/**

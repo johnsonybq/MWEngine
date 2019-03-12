@@ -1,5 +1,5 @@
 #include "ModuleManager.h"
-
+#include "Memory\MemoryDefine.h"
 
 namespace Core
 {
@@ -25,7 +25,7 @@ namespace Core
 		if (itor != m_moduleMap.end())
 			return false;
 
-		ModuleData* pModuleData = MW_New(ModuleData, 1);
+		ModuleData* pModuleData = MW_New ModuleData();
 		m_moduleMap.insert(std::make_pair(path, pModuleData));
 		
 		return pModuleData->LoadModule(path);
