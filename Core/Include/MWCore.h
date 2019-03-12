@@ -3,8 +3,7 @@
 
 namespace Core
 {
-
-	#define PURE_VIRTUAL	=0
+	#define PURE	=0
 	#define CORE_EXPORTS
 
 	#ifdef CORE_EXPORTS

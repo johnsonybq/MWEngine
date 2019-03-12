@@ -1,4 +1,5 @@
 #pragma once
+#include "EBus\EBus.h"
 
 namespace Core
 {
@@ -16,7 +17,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool	LoadModule(const char* path) PURE_VIRTUAL;
+		virtual	bool	LoadModule(const char* path) PURE;
 
 
 
@@ -29,7 +30,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool	LoadAllModules(const char* path) PURE_VIRTUAL;
+		virtual	bool	LoadAllModules(const char* path) PURE;
 
 
 
@@ -42,7 +43,7 @@ namespace Core
 		@param		[OUT]
 		return 		是否已经加载该模块
 		*/
-		virtual	bool	IsLoadModule(const char* path) PURE_VIRTUAL;
+		virtual	bool	IsLoadModule(const char* path) PURE;
 
 
 		/**
@@ -54,7 +55,7 @@ namespace Core
 		@param		[OUT]
 		return 		移除成功/失败
 		*/
-		virtual	bool	RemoveModule(const char* path) PURE_VIRTUAL;
+		virtual	bool	RemoveModule(const char* path) PURE;
 
 
 		/**
@@ -63,8 +64,10 @@ namespace Core
 		@param		[OUT]
 		return 		移除成功/失败
 		*/
-		virtual	bool	RemoveAllModules() PURE_VIRTUAL;
+		virtual	bool	RemoveAllModules() PURE;
 
 
 	};
+
+	using ModuleManagerEBus = EBus<IModuleManager>;
 }

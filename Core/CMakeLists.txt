@@ -20,6 +20,7 @@ file(
     ALL_CODES
 	"${SRC_Path}/src/*.h"
 	"${SRC_Path}/src/*.cpp"
+	"${SRC_Path}/src/Module/*.h"
 	"${SRC_Path}/src/Module/*.cpp"
 	"${SRC_Path}/Include/*.h"
     "${SRC_Path}/Include/EBus/*.h"
