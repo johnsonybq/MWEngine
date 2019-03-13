@@ -21,6 +21,10 @@ namespace Core
 	public:
 
 
+		// 初始化
+		virtual	bool	Initialize();
+
+
 		// 加载单个模块
 		virtual	bool	LoadModule(const char* path);
 

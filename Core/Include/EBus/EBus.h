@@ -1,7 +1,7 @@
 #pragma once
 #include <map>
 #include <set>
-#include "IMiscellaneous.h"
+#include "MWCore.h"
 
 namespace Core
 {

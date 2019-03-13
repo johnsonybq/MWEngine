@@ -7,6 +7,15 @@ namespace Core
 	{
 	public:
 
+
+		/**
+		@breif		初始化
+
+		@param		[OUT]
+		return 		加载成功/失败
+		*/
+		virtual	bool	Initialize() PURE;
+
 		
 		/**
 		@breif		加载单个模块

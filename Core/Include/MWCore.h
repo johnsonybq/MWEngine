@@ -3,7 +3,7 @@
 
 namespace Core
 {
-	#define PURE	=0
+	#define PURE =0
 	#define CORE_EXPORTS
 
 	#ifdef CORE_EXPORTS

@@ -14,6 +14,12 @@ namespace Core
 
 	}
 
+	bool ModuleManager::Initialize()
+	{
+		ModuleManagerEBus::BusConnect(this);
+		return true;
+	}
+
 	bool ModuleManager::LoadModule(const char * path)
 	{
 		if(path == nullptr)

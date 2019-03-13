@@ -40,7 +40,7 @@ file(
 
 #add_executable(Framework ${ALL_CODES})
 #add_library(Core ${ALL_CODES})
-add_library(${ENGINE_PROJECT_NAME} SHARED ${ALL_CODES})
+add_library(${ENGINE_PROJECT_NAME} ${ALL_CODES})
 #…Ë÷√ ‰≥ˆ
 set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/dll)
 set_target_properties(${ENGINE_PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/dll)
