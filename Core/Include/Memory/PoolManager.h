@@ -29,7 +29,7 @@ public:
 
 	
 	// ∑÷≈‰ƒ⁄¥Ê
-	void*							Allocation( size_t nSize, const char* pFile, int nLine );
+	void*							Allocation(unsigned int nSize, const char* pFile, int nLine );
 
 
 
@@ -81,11 +81,11 @@ PoolManager::~PoolManager()
 
 
 
-void*					PoolManager::Allocation( size_t nSize, const char* pFile, int nLine )
+void*					PoolManager::Allocation(unsigned int nSize, const char* pFile, int nLine )
 {
 	assert( nSize <= m_MaxNodeSize || "PoolManager::Allocation Size Error!" );
 
-	unsigned short nIndex = ( nSize - 1 ) / m_ByteAligning;
+	unsigned int nIndex = ( nSize - 1 ) / m_ByteAligning;
 
 	if ( 0 == m_arrMemPool[nIndex] )
 	{
@@ -110,7 +110,7 @@ void*					PoolManager::Allocation( size_t nSize, const char* pFile, int nLine )
 		++ m_nCurPoolCount;
 	}
 
-	MemoryNode* pNode = m_arrMemPool[nIndex]->Allocation( nSize, pFile, nLine );
+	MemoryNode* pNode = m_arrMemPool[nIndex]->Allocation( (unsigned int)nSize, pFile, nLine );
 
 	if ( 0 == pNode )
 	{

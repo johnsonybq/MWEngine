@@ -26,8 +26,8 @@ file(
 link_directories(${CMAKE_CURRENT_LIST_DIR}/../3rdParty/GLFW/lib)
 link_libraries(glfw3.lib) 
 
-link_directories(${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/dll)
-link_libraries(Core.dll) 
+link_directories(${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/lib)
+link_libraries(Core.lib) 
 
 
 add_executable(${LAUNCHER_PROJECT_NAME} ${ALL_CODES})

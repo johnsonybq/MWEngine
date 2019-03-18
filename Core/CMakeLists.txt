@@ -20,9 +20,12 @@ file(
     ALL_CODES
 	"${SRC_Path}/src/*.h"
 	"${SRC_Path}/src/*.cpp"
+	"${SRC_Path}/src/Log/*.h"
+	"${SRC_Path}/src/Log/*.cpp"
 	"${SRC_Path}/src/Module/*.h"
 	"${SRC_Path}/src/Module/*.cpp"
 	"${SRC_Path}/Include/*.h"
+	"${SRC_Path}/Include/Log/*.h"
     "${SRC_Path}/Include/EBus/*.h"
 	"${SRC_Path}/Include/Memory/*.h"
 	"${SRC_Path}/Include/ByteArray/*.h"
@@ -42,15 +45,18 @@ file(
 #add_library(Core ${ALL_CODES})
 add_library(${ENGINE_PROJECT_NAME} ${ALL_CODES})
 #…Ë÷√ ‰≥ˆ
-set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/dll)
-set_target_properties(${ENGINE_PROJECT_NAME} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/dll)
+set(LIBRARY_OUTPUT_PATH ${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/lib)
+set_target_properties(${THIS_PROJECT} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_DEBUG ${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/lib)
+set_target_properties(${THIS_PROJECT} PROPERTIES RUNTIME_OUTPUT_DIRECTORY_RELEASE ${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/lib)
 
 set(REG_EXT "[^/]*([.]cpp|[.]c|[.]h|[.]hpp|[.]vs|[.]fs)$")
 
 source_group("src" REGULAR_EXPRESSION "${SRC_Path}/src/${REG_EXT}")
 source_group("src\\Module" REGULAR_EXPRESSION "${SRC_Path}/src/Module/${REG_EXT}")
+source_group("src\\Log" REGULAR_EXPRESSION "${SRC_Path}/src/Log/${REG_EXT}")
 source_group("Include" REGULAR_EXPRESSION "${SRC_Path}/Include/${REG_EXT}")
 source_group("Include\\EBus" REGULAR_EXPRESSION "${SRC_Path}/Include/EBus/${REG_EXT}")
 source_group("Include\\Memory" REGULAR_EXPRESSION "${SRC_Path}/Include/Memory/${REG_EXT}")
 source_group("Include\\ByteArray" REGULAR_EXPRESSION "${SRC_Path}/Include/ByteArray/${REG_EXT}")
 source_group("Include\\Module" REGULAR_EXPRESSION "${SRC_Path}/Include/Module/${REG_EXT}")
+source_group("Include\\Log" REGULAR_EXPRESSION "${SRC_Path}/Include/Log/${REG_EXT}")

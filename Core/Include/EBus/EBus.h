@@ -12,20 +12,20 @@ namespace Core
 		
 		static void		BusConnect(Interface* pInterface);
 
-		static void		BusConnect(UUID id, Interface* pInterface);
+		static void		BusConnect(UID id, Interface* pInterface);
 
 		static void		BusDisconnect(Interface* pInterface);
 		
-		static void		BusDisconnect(UUID id, Interface* pInterface);
+		static void		BusDisconnect(UID id, Interface* pInterface);
 
 		template<class Fuction, class ... InputArgs>
-		static void		Event(UUID uid, Fuction fuc, InputArgs&& ... args);
+		static void		Event(UID uid, Fuction fuc, InputArgs&& ... args);
 
 		template<class Fuction, class ... InputArgs>
 		static void		Broadcast(Fuction fuc, InputArgs&& ... args);
 
 		template<class Result,class Fuction, class ... InputArgs>
-		static void		EventResult(Result& result, UUID uid, Fuction fuc, InputArgs&& ... args);
+		static void		EventResult(Result& result, UID uid, Fuction fuc, InputArgs&& ... args);
 
 		template<class Result, class Fuction, class ... InputArgs>
 		static void		BroadcastResult(Result& result, Fuction fuc, InputArgs&& ... args);
@@ -33,7 +33,7 @@ namespace Core
 	private:
 
 		using CallBackList = std::set<Interface*>;
-		using AllCallBack = std::map<UUID, CallBackList>;
+		using AllCallBack = std::map<UID, CallBackList>;
 
 		static AllCallBack		m_callBacks;
 		static CallBackList		m_noIDCallBacks;
@@ -49,7 +49,7 @@ namespace Core
 	}
 
 	template<class Interface>
-	inline void EBus<Interface>::BusConnect(UUID id, Interface * pInterface)
+	inline void EBus<Interface>::BusConnect(UID id, Interface * pInterface)
 	{
 		if (pInterface == nullptr)
 			return;
@@ -59,7 +59,7 @@ namespace Core
 
 		if (itor == m_callBacks.end())
 		{
-			m_callBacks.insert(std::pair<UUID, CallBackList>(id, list));
+			m_callBacks.insert(std::pair<UID, CallBackList>(id, list));
 			itor = m_callBacks.find(id);
 		}
 
@@ -79,7 +79,7 @@ namespace Core
 	}
 
 	template<class Interface>
-	inline void EBus<Interface>::BusDisconnect(UUID id, Interface * pInterface)
+	inline void EBus<Interface>::BusDisconnect(UID id, Interface * pInterface)
 	{
 		if (pInterface == nullptr)
 			return;
@@ -99,7 +99,7 @@ namespace Core
 
 	template<class Interface>
 	template<class Fuction, class ...InputArgs>
-	inline void EBus<Interface>::Event(UUID uid, Fuction fuc, InputArgs && ...args)
+	inline void EBus<Interface>::Event(UID uid, Fuction fuc, InputArgs && ...args)
 	{
 		AllCallBack::iterator itor = m_callBacks.find(uid);
 
@@ -155,7 +155,7 @@ namespace Core
 
 	template<class Interface>
 	template<class Result, class Fuction, class ...InputArgs>
-	inline void EBus<Interface>::EventResult(Result & result, UUID uid, Fuction fuc, InputArgs && ...args)
+	inline void EBus<Interface>::EventResult(Result & result, UID uid, Fuction fuc, InputArgs && ...args)
 	{
 		AllCallBack::iterator itor = m_callBacks.find(uid);
 
@@ -209,7 +209,7 @@ namespace Core
 
 
 	template<class Interface>
-	std::map<UUID, std::set<Interface*>> EBus<Interface>::m_callBacks;
+	std::map<UID, std::set<Interface*>> EBus<Interface>::m_callBacks;
 
 	template<class Interface>
 	std::set<Interface*> EBus<Interface>::m_noIDCallBacks;

@@ -3,7 +3,8 @@
 
 namespace Core
 {
-	#define PURE =0
+	#define VPURE =0
+	#define UID unsigned int
 	#define CORE_EXPORTS
 
 	#ifdef CORE_EXPORTS

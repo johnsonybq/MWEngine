@@ -53,7 +53,7 @@ MemoryManager::~MemoryManager()
 
 
 
-void*						MemoryManager::Allocation( size_t nSize, const char* pFile, int nLine )
+void*						MemoryManager::Allocation(unsigned int nSize, const char* pFile, int nLine )
 {
 	if ( nSize > 256 )
 	{
