@@ -23,37 +23,17 @@ struct MemoryNode
 	unsigned int			nSize;					// 创建内存大小
 
 
-	MemoryNode()
-		:nLine( 0 ), nSize( 0 ), pNext( 0 ), bUsed( false ), bGuarded( false )
-	{
-		stPad.InitPadding();
-		memset( sFile, 0, MAX_FILE_PATH );
-	}
+	MemoryNode();
 
 
-	~MemoryNode()
-	{
-
-	}
+	~MemoryNode();
 
 
 	// 初始化内存块信息
-	void					Init()
-	{
-		stPad.InitPadding();
-		memset( sFile, 0, MAX_FILE_PATH );
-		nLine = nSize = 0;
-		pNext = 0;
-		bUsed = false;
-		bGuarded = false;
-	}
+	void					Init();
 
 
 
 	// 当前内存块是否访问越界
-	bool					Invalid()
-	{
-		return stPad.InvalidPtr();
-	}
-
+	bool					Invalid();
 };
