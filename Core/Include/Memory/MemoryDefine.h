@@ -2,8 +2,6 @@
 #include "MemoryManager.h"
 
 
-#ifdef _DEBUG
-
 
 static MemoryManager sMgr;
 
@@ -61,5 +59,3 @@ void							SetOwner( const char* pFile, int nLine )
 #define					MW_Malloc( nSize )		AllocationMemory( nSize, __FILE__, __LINE__ )
 #define					MW_Free( pPtr )		RetrieveMemory( pPtr )
 
-
-#endif

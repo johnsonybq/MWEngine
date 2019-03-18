@@ -2,6 +2,8 @@
 #include <stdio.h>
 #include "Log\ILog.h"
 #include "MWCore.h"
+#include <iostream>
+#include <Windows.h>
 
 namespace Core
 {
@@ -52,7 +54,7 @@ namespace Core
 	private:
 
 
-		FILE *			m_pFile;
+		HANDLE 			m_pFile;
 
 	};
 

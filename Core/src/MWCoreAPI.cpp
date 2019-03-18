@@ -21,6 +21,7 @@ namespace Core
 	{
 
 		LogManager::GetInstance()->Initialize();
+		LogManager::GetInstance()->ToFile("sssssssssssssssssssss");
 		return ModuleManager::GetInstance()->Initialize();
 	}
 }

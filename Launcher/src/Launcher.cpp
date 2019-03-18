@@ -42,10 +42,10 @@ int	main()
 	Core::MWCoreAPI::GetInstance()->Initialize();
 
 
-	while (!glfwWindowShouldClose(window))
+	/*while (!glfwWindowShouldClose(window))
 	{
 
-	}
+	}*/
 
 
 	return 0;

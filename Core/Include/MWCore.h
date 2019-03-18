@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace Core
 {
 	#define VPURE =0

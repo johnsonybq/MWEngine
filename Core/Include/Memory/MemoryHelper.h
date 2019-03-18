@@ -162,7 +162,7 @@ void				MemoryHelper::ReportMemoryInfo( const char* pInfo )
 	if ( s_bOpenFirst )
 	{
 		// 每次启动是都会删除此文件
-		DeleteFileA( "Memory.log" );
+		DeleteFileA( "F:\\Code\\MWEngine\\WorkSpace\\Memory.log" );
 		s_bOpenFirst = false;
 	}
 

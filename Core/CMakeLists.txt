@@ -24,6 +24,7 @@ file(
 	"${SRC_Path}/src/Log/*.cpp"
 	"${SRC_Path}/src/Module/*.h"
 	"${SRC_Path}/src/Module/*.cpp"
+	"${SRC_Path}/src/Memory/*.cpp"
 	"${SRC_Path}/Include/*.h"
 	"${SRC_Path}/Include/Log/*.h"
     "${SRC_Path}/Include/EBus/*.h"
@@ -54,6 +55,7 @@ set(REG_EXT "[^/]*([.]cpp|[.]c|[.]h|[.]hpp|[.]vs|[.]fs)$")
 source_group("src" REGULAR_EXPRESSION "${SRC_Path}/src/${REG_EXT}")
 source_group("src\\Module" REGULAR_EXPRESSION "${SRC_Path}/src/Module/${REG_EXT}")
 source_group("src\\Log" REGULAR_EXPRESSION "${SRC_Path}/src/Log/${REG_EXT}")
+source_group("src\\Memory" REGULAR_EXPRESSION "${SRC_Path}/src/Memory/${REG_EXT}")
 source_group("Include" REGULAR_EXPRESSION "${SRC_Path}/Include/${REG_EXT}")
 source_group("Include\\EBus" REGULAR_EXPRESSION "${SRC_Path}/Include/EBus/${REG_EXT}")
 source_group("Include\\Memory" REGULAR_EXPRESSION "${SRC_Path}/Include/Memory/${REG_EXT}")

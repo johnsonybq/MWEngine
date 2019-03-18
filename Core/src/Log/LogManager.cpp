@@ -1,15 +1,13 @@
 #include <time.h>
 #include <direct.h>
-#include <windows.h>
 #include "LogManager.h"
 #include "Memory\MemoryDefine.h"
-
 using namespace std;
 
 namespace Core
 {
 	LogManager::LogManager()
-		:m_pFile(nullptr)
+		:m_pFile(NULL)
 	{
 	}
 
@@ -23,12 +21,10 @@ namespace Core
 	{
 		LogEBus::BusConnect(this);
 
-		char buffer[_MAX_PATH];
-		_getcwd(buffer, _MAX_PATH);
+		m_pFile = CreateFileA("F:\\Code\\MWEngine\\WorkSpace\\Game.log", GENERIC_WRITE, FILE_SHARE_READ, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
+		SetFilePointer(m_pFile, 0, 0, FILE_END);
 
-		char logPath[_MAX_PATH] = "%s//user//log.ini";
-		vsprintf_s(logPath, logPath, buffer);
-		m_pFile = fopen(logPath, "rw+");
+		 LogManager* pLog = MW_New LogManager();
 
 		return true;
 	}
@@ -107,7 +103,7 @@ namespace Core
 
 	void LogManager::ToFile(const char * msg, ...)
 	{
-		if (msg == nullptr)
+		if (msg == nullptr || m_pFile == NULL)
 			return;
 
 		time_t now = time(NULL);
@@ -122,6 +118,10 @@ namespace Core
 		va_end(ap);
 
 
+		DWORD bytes;
+		WriteFile(m_pFile, totalMsg, (DWORD)strlen(totalMsg), &bytes, 0);
+		_flushall();
+		CloseHandle(m_pFile);
 	}
 
 
