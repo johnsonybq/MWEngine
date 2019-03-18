@@ -1,4 +1,5 @@
 #pragma once
+#include <stdio.h>
 #include "Log\ILog.h"
 #include "MWCore.h"
 
@@ -51,7 +52,7 @@ namespace Core
 	private:
 
 
-	
+		FILE *			m_pFile;
 
 	};
 

@@ -20,10 +20,7 @@ namespace Core
 	bool	MWCoreAPI::Initialize()
 	{
 
-		LogManager::GetInstance()->Log("Test  Log %s","asd");
-		LogManager::GetInstance()->Warning("Test  Log %s", "hhhh");
-		LogManager::GetInstance()->Error("Test  Log %s", "xcxcx");
-		LogManager::GetInstance()->Log("Test  Log %s", "iiii");
+		LogManager::GetInstance()->Initialize();
 		return ModuleManager::GetInstance()->Initialize();
 	}
 }

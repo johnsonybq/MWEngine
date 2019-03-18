@@ -1,13 +1,15 @@
 #include <time.h>
-#include <iostream>
+#include <direct.h>
 #include <windows.h>
 #include "LogManager.h"
+#include "Memory\MemoryDefine.h"
 
 using namespace std;
 
 namespace Core
 {
 	LogManager::LogManager()
+		:m_pFile(nullptr)
 	{
 	}
 
@@ -20,6 +22,14 @@ namespace Core
 	bool LogManager::Initialize()
 	{
 		LogEBus::BusConnect(this);
+
+		char buffer[_MAX_PATH];
+		_getcwd(buffer, _MAX_PATH);
+
+		char logPath[_MAX_PATH] = "%s//user//log.ini";
+		vsprintf_s(logPath, logPath, buffer);
+		m_pFile = fopen(logPath, "rw+");
+
 		return true;
 	}
 
