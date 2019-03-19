@@ -2,7 +2,7 @@
 #include <Windows.h>
 #include <iostream>
 #include "Memory\MemoryHelper.h"
-
+#include "System\ISystem.h"
 
 
 
@@ -106,15 +106,28 @@ void				MemoryHelper::ReportMemoryInfo( const char* pInfo )
 {
 	static bool s_bOpenFirst = true;
 
+	const char* rootPath = nullptr;
+	char filePath[256] = {};
+	Core::SystemEBus::BroadcastResult(rootPath,&Core::ISystem::GetRootPath);
+
+	if (rootPath != nullptr)
+	{
+		sprintf_s(filePath, "%s%s", rootPath, "Memory.log");
+	}
+	else
+	{
+		sprintf_s(filePath, "%s", "Memory.log");
+	}
+
 	if ( s_bOpenFirst )
 	{
 		// 每次启动是都会删除此文件
-		DeleteFileA( "Memory.log" );
+		DeleteFileA(filePath);
 		s_bOpenFirst = false;
 	}
 
 	// 写了就关
-	HANDLE hFile = CreateFileA( "Memory.log", GENERIC_WRITE, FILE_SHARE_READ, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0 );
+	HANDLE hFile = CreateFileA(filePath, GENERIC_WRITE, FILE_SHARE_READ, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0 );
 	SetFilePointer( hFile, 0, 0, FILE_END );
 	DWORD bytes;
 	WriteFile( hFile, pInfo, ( DWORD )strlen( pInfo ), &bytes, 0 );

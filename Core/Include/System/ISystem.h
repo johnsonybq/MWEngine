@@ -37,7 +37,8 @@ namespace Core
 		*/
 		virtual	bool			Initialize() VPURE;
 
-		
+
+
 		/**
 		@breif		获取根目录
 

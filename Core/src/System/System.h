@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include "System\ISystem.h"
 
 
@@ -30,6 +31,10 @@ namespace Core
 		virtual	int				GetLocalTime(TIME_TYPE timeType);
 
 
+	private:
+
+
+		std::string				m_rootPath;
 	};
 
 }

@@ -1,4 +1,5 @@
 #include <time.h>
+#include <Windows.h>
 #include "System.h"
 
 
@@ -19,12 +20,22 @@ namespace Core
 	bool System::Initialize()
 	{
 		SystemEBus::BusConnect(this);
+
+		char szPath[256] = { 0 };
+		GetModuleFileName(NULL, szPath, 256);
+		m_rootPath = szPath;
+
+		size_t pos = m_rootPath.find_last_of("\\");
+		
+		m_rootPath = m_rootPath.substr(0, pos+1);
+
 		return true;
 	}
 
+
 	const char * System::GetRootPath()
 	{
-		return nullptr;
+		return m_rootPath.c_str();
 	}
 
 	int System::GetLocalTime(TIME_TYPE timeType)
