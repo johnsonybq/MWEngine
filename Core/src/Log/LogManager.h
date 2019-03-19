@@ -40,7 +40,7 @@ namespace Core
 
 
 		// 写入Log文件
-		virtual	void	ToFile(const char* msg, ...);
+		virtual	void	LogToFile(const char* msg, ...);
 
 
 		// 打开Log文件

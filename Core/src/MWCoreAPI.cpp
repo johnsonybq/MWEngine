@@ -1,4 +1,5 @@
 #include "MWCoreAPI.h"
+#include "System\System.h"
 #include "Log\LogManager.h"
 #include "Module\ModuleManager.h"
 
@@ -19,9 +20,9 @@ namespace Core
 
 	bool	MWCoreAPI::Initialize()
 	{
-
+		System::GetInstance()->Initialize();
 		LogManager::GetInstance()->Initialize();
-		LogManager::GetInstance()->ToFile("sssssssssssssssssssss");
+		LogManager::GetInstance()->LogToFile("sssssssssssssssssssss");
 		return ModuleManager::GetInstance()->Initialize();
 	}
 }

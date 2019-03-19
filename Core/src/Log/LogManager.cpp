@@ -1,6 +1,6 @@
-#include <time.h>
 #include <direct.h>
 #include "LogManager.h"
+#include "System\ISystem.h"
 #include "Memory\MemoryDefine.h"
 using namespace std;
 
@@ -37,9 +37,7 @@ namespace Core
 
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_BLUE | FOREGROUND_GREEN | FOREGROUND_RED);
 
-		time_t now = time(NULL);
-		tm t;
-		localtime_s(&t, &now);
+		
 
 		char msgBuf[4096];
 		char totalMsg[4096] = "<%d:%d:%d> [Message] %s  \n";
@@ -48,8 +46,12 @@ namespace Core
 		vsprintf_s(msgBuf, msg, ap);
 		va_end(ap);
 
+		int hour, min, sec = 0;
+		SystemEBus::BroadcastResult(hour, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_HOUR);
+		SystemEBus::BroadcastResult(min, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_MINUTE);
+		SystemEBus::BroadcastResult(sec, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_SECOND);
 
-		printf_s(totalMsg, t.tm_hour, t.tm_min, t.tm_sec, msgBuf);
+		printf_s(totalMsg, hour, min, sec, msgBuf);
 	}
 
 
@@ -61,9 +63,10 @@ namespace Core
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_RED |
 			FOREGROUND_GREEN);
 
-		time_t now = time(NULL);
-		tm t;
-		localtime_s(&t, &now);
+		int hour, min, sec = 0;
+		SystemEBus::BroadcastResult(hour, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_HOUR);
+		SystemEBus::BroadcastResult(min, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_MINUTE);
+		SystemEBus::BroadcastResult(sec, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_SECOND);
 
 		char msgBuf[4096];
 		char totalMsg[4096] = "<%d:%d:%d> [Warning] %s  \n";
@@ -73,7 +76,7 @@ namespace Core
 		va_end(ap);
 
 
-		printf_s(totalMsg, t.tm_hour, t.tm_min, t.tm_sec, msgBuf);
+		printf_s(totalMsg, hour, min, sec, msgBuf);
 	}
 
 
@@ -85,10 +88,6 @@ namespace Core
 		SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), FOREGROUND_INTENSITY |
 			FOREGROUND_RED);
 
-		time_t now = time(NULL);
-		tm t;
-		localtime_s(&t, &now);
-
 		char msgBuf[4096];
 		char totalMsg[4096] = "<%d:%d:%d> [Error] %s  \n";
 		va_list ap;
@@ -96,30 +95,28 @@ namespace Core
 		vsprintf_s(msgBuf, msg, ap);
 		va_end(ap);
 
+		int hour = 0, min = 0, sec = 0;
+		SystemEBus::BroadcastResult(hour, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_HOUR);
+		SystemEBus::BroadcastResult(min, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_MINUTE);
+		SystemEBus::BroadcastResult(sec, &Core::ISystem::GetLocalTime, Core::E_TIME_TYPE_SECOND);
 
-		printf_s(totalMsg, t.tm_hour, t.tm_min, t.tm_sec, msgBuf);
+		printf_s(totalMsg, hour, min, sec, msgBuf);
 	}
 
 
-	void LogManager::ToFile(const char * msg, ...)
+	void LogManager::LogToFile(const char * msg, ...)
 	{
 		if (msg == nullptr || m_pFile == NULL)
 			return;
 
-		time_t now = time(NULL);
-		tm t;
-		localtime_s(&t, &now);
-
 		char msgBuf[4096];
-		char totalMsg[4096] = "<%d:%d:%d> [Error] %s  \n";
 		va_list ap;
 		va_start(ap, msg);
 		vsprintf_s(msgBuf, msg, ap);
 		va_end(ap);
 
-
 		DWORD bytes;
-		WriteFile(m_pFile, totalMsg, (DWORD)strlen(totalMsg), &bytes, 0);
+		WriteFile(m_pFile, msgBuf, (DWORD)strlen(msgBuf), &bytes, 0);
 		_flushall();
 		CloseHandle(m_pFile);
 	}

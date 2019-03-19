@@ -1,3 +1,14 @@
+/************************************************************************/
+/*
+文件名: ILog.h
+描  述: Log接口
+日  期: 19/03/2019
+作  者: MibuWolf
+版	本: 1.0
+备  注:
+*/
+/************************************************************************/
+
 #pragma once
 #include "EBus\EBus.h"
 
@@ -52,7 +63,7 @@ namespace Core
 		@param		[IN]
 		msg			日志内容
 		*/
-		virtual	void	ToFile(const char* path, ...) VPURE;
+		virtual	void	LogToFile(const char* path, ...) VPURE;
 
 
 		/**

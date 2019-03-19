@@ -25,12 +25,15 @@ file(
 	"${SRC_Path}/src/Module/*.h"
 	"${SRC_Path}/src/Module/*.cpp"
 	"${SRC_Path}/src/Memory/*.cpp"
+	"${SRC_Path}/src/System/*.h"
+	"${SRC_Path}/src/System/*.cpp"
 	"${SRC_Path}/Include/*.h"
 	"${SRC_Path}/Include/Log/*.h"
     "${SRC_Path}/Include/EBus/*.h"
 	"${SRC_Path}/Include/Memory/*.h"
 	"${SRC_Path}/Include/ByteArray/*.h"
 	"${SRC_Path}/Include/Module/*.h"
+	"${SRC_Path}/Include/System/*.h"
 )
 
 #…Ë÷√libø‚Œƒº˛º–
@@ -56,9 +59,11 @@ source_group("src" REGULAR_EXPRESSION "${SRC_Path}/src/${REG_EXT}")
 source_group("src\\Module" REGULAR_EXPRESSION "${SRC_Path}/src/Module/${REG_EXT}")
 source_group("src\\Log" REGULAR_EXPRESSION "${SRC_Path}/src/Log/${REG_EXT}")
 source_group("src\\Memory" REGULAR_EXPRESSION "${SRC_Path}/src/Memory/${REG_EXT}")
+source_group("src\\System" REGULAR_EXPRESSION "${SRC_Path}/src/System/${REG_EXT}")
 source_group("Include" REGULAR_EXPRESSION "${SRC_Path}/Include/${REG_EXT}")
 source_group("Include\\EBus" REGULAR_EXPRESSION "${SRC_Path}/Include/EBus/${REG_EXT}")
 source_group("Include\\Memory" REGULAR_EXPRESSION "${SRC_Path}/Include/Memory/${REG_EXT}")
 source_group("Include\\ByteArray" REGULAR_EXPRESSION "${SRC_Path}/Include/ByteArray/${REG_EXT}")
 source_group("Include\\Module" REGULAR_EXPRESSION "${SRC_Path}/Include/Module/${REG_EXT}")
 source_group("Include\\Log" REGULAR_EXPRESSION "${SRC_Path}/Include/Log/${REG_EXT}")
+source_group("Include\\System" REGULAR_EXPRESSION "${SRC_Path}/Include/System/${REG_EXT}")

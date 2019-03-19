@@ -1,7 +1,7 @@
 #pragma once
 #include <Windows.h>
 #include <iostream>
-#include "SingleModel.h"
+#include "MWCore.h"
 
 
 
@@ -10,7 +10,7 @@
 class		MemoryHelper
 {
 	
-	SINGLE_INSTANCE( MemoryHelper );
+	SINGLETON_IMPLEMENT( MemoryHelper );
 
 
 public:
