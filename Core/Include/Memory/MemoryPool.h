@@ -77,5 +77,3 @@ private:
 	MemoryArray<MemoryNode*>		m_AllocList;			// 由此缓冲区分配出去的内存块
 
 };
-
-

@@ -1,6 +1,6 @@
 #include <GLFW/glfw3.h>
 #include "MWCoreAPI.h"
-
+#include "Log\ILog.h"
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
@@ -40,12 +40,12 @@ int	main()
     glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	Core::MWCoreAPI::GetInstance()->Initialize();
+	Core::LogEBus::Broadcast(&Core::ILog::Error, "Init Com  %f ", 1.234f);
 
-
-	/*while (!glfwWindowShouldClose(window))
+	while (!glfwWindowShouldClose(window))
 	{
 
-	}*/
+	}
 
 
 	return 0;
