@@ -1,7 +1,6 @@
 #pragma once
 #include <Windows.h>
 #include <iostream>
-#include "MWCore.h"
 
 
 
@@ -9,8 +8,18 @@
 
 class		MemoryHelper
 {
+private:	
+
+	MemoryHelper();
+
+public:
+
 	
-	SINGLETON_IMPLEMENT( MemoryHelper );
+	static MemoryHelper* GetInstance()
+	{													
+		static MemoryHelper instance;
+		return &instance;									
+	}
 
 
 public:

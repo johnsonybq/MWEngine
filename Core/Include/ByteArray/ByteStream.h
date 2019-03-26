@@ -4,6 +4,7 @@
 #include <string>
 #include <WTypes.h>
 #include <assert.h>
+#pragma warning(disable:4018)
 
 namespace Core
 {

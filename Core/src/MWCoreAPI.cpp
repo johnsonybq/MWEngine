@@ -2,7 +2,7 @@
 #include "System\System.h"
 #include "Log\LogManager.h"
 #include "Module\ModuleManager.h"
-
+#include "Reflect\ReflectManager.h"
 
 namespace Core
 {
@@ -22,6 +22,8 @@ namespace Core
 	{
 		System::GetInstance()->Initialize();
 		LogManager::GetInstance()->Initialize();
+		ReflectManager::GetInstance()->Initialize();
+
 		LogManager::GetInstance()->LogToFile("sssssssssssssssssssss");
 		return ModuleManager::GetInstance()->Initialize();
 	}

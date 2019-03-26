@@ -1,3 +1,4 @@
+#pragma once
 #ifndef IVector_h__
 #define IVector_h__
 

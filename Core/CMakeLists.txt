@@ -27,6 +27,11 @@ file(
 	"${SRC_Path}/src/Memory/*.cpp"
 	"${SRC_Path}/src/System/*.h"
 	"${SRC_Path}/src/System/*.cpp"
+	"${SRC_Path}/src/Reflect/*.h"
+	"${SRC_Path}/src/Reflect/*.cpp"
+	"${SRC_Path}/src/Serialize/*.h"
+	"${SRC_Path}/src/Serialize/*.cpp"
+	"${SRC_Path}/src/ByteArray/*.cpp"
 	"${SRC_Path}/Include/*.h"
 	"${SRC_Path}/Include/Log/*.h"
     "${SRC_Path}/Include/EBus/*.h"
@@ -34,6 +39,8 @@ file(
 	"${SRC_Path}/Include/ByteArray/*.h"
 	"${SRC_Path}/Include/Module/*.h"
 	"${SRC_Path}/Include/System/*.h"
+	"${SRC_Path}/Include/Reflect/*.h"
+	"${SRC_Path}/Include/Serialize/*.h"
 )
 
 #…Ë÷√libø‚Œƒº˛º–
@@ -60,6 +67,9 @@ source_group("src\\Module" REGULAR_EXPRESSION "${SRC_Path}/src/Module/${REG_EXT}
 source_group("src\\Log" REGULAR_EXPRESSION "${SRC_Path}/src/Log/${REG_EXT}")
 source_group("src\\Memory" REGULAR_EXPRESSION "${SRC_Path}/src/Memory/${REG_EXT}")
 source_group("src\\System" REGULAR_EXPRESSION "${SRC_Path}/src/System/${REG_EXT}")
+source_group("src\\Reflect" REGULAR_EXPRESSION "${SRC_Path}/src/Reflect/${REG_EXT}")
+source_group("src\\Serialize" REGULAR_EXPRESSION "${SRC_Path}/src/Serialize/${REG_EXT}")
+source_group("src\\ByteArray" REGULAR_EXPRESSION "${SRC_Path}/src/ByteArray/${REG_EXT}")
 source_group("Include" REGULAR_EXPRESSION "${SRC_Path}/Include/${REG_EXT}")
 source_group("Include\\EBus" REGULAR_EXPRESSION "${SRC_Path}/Include/EBus/${REG_EXT}")
 source_group("Include\\Memory" REGULAR_EXPRESSION "${SRC_Path}/Include/Memory/${REG_EXT}")
@@ -67,3 +77,5 @@ source_group("Include\\ByteArray" REGULAR_EXPRESSION "${SRC_Path}/Include/ByteAr
 source_group("Include\\Module" REGULAR_EXPRESSION "${SRC_Path}/Include/Module/${REG_EXT}")
 source_group("Include\\Log" REGULAR_EXPRESSION "${SRC_Path}/Include/Log/${REG_EXT}")
 source_group("Include\\System" REGULAR_EXPRESSION "${SRC_Path}/Include/System/${REG_EXT}")
+source_group("Include\\Reflect" REGULAR_EXPRESSION "${SRC_Path}/Include/Reflect/${REG_EXT}")
+source_group("Include\\Serialize" REGULAR_EXPRESSION "${SRC_Path}/Include/Serialize/${REG_EXT}")

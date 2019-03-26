@@ -11,7 +11,7 @@
 
 #pragma once
 #include "MemoryManager.h"
-
+#pragma warning(disable:4291)
 
 #ifdef _DEBUG
 

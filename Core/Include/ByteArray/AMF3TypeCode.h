@@ -1,3 +1,4 @@
+#pragma once
 #ifndef AMF3TypeCode_h__
 #define AMF3TypeCode_h__
 
