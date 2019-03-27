@@ -46,6 +46,12 @@ namespace Core
 		// 属性名
 		std::string				memberName;
 
+		// 指针偏移
+		int						offset;
+
+		// 版本信息
+		int						version;
+
 	};
 
 }

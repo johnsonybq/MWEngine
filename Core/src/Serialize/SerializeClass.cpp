@@ -16,12 +16,13 @@ namespace Core
 
 	}
 
-	void SerializeClass::SetName(const char * name)
+	void SerializeClass::SetName(const char * name, int v)
 	{
 		if (name == nullptr)
 			return;
 
 		className = name;
+		version = v;
 	}
 
 	const char * SerializeClass::GetName()
@@ -29,7 +30,7 @@ namespace Core
 		return className.c_str();
 	}
 
-	void SerializeClass::Member(ESMemberType eType, const char * memberName)
+	void SerializeClass::Member(ESMemberType eType, const char * memberName, int offset)
 	{
 		if (memberName == nullptr)
 			return;
@@ -53,6 +54,20 @@ namespace Core
 		member = MW_New SerializeMember;
 		member->eMemberType = eType;
 		member->memberName = memberName;
+		member->offset = offset;
 		members.push_back(member);
+	}
+
+	int SerializeClass::GetMemberCount()
+	{
+		return members.size();
+	}
+
+	SerializeMember * SerializeClass::GetMember(int count)
+	{
+		if(count < 0 || count >= members.size())
+			return nullptr;
+
+		return members[count];
 	}
 }

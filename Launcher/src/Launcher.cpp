@@ -11,6 +11,43 @@ void processInput(GLFWwindow *window);
 const unsigned int SCR_WIDTH = 1280;
 const unsigned int SCR_HEIGHT = 720;
 
+
+class A
+{
+public:
+
+	A()
+	{
+		a = 100;
+		b = 100.0;
+		c = false;
+	}
+
+private:
+
+	int a;
+	float b;
+	bool c;
+};
+
+
+class B
+{
+public:
+
+	B()
+	{
+		x = 12345;
+		y = 200.0f;
+	}
+private:
+
+	int x;
+	float y;
+	A z;
+};
+
+
 int	main()
 {
 	// glfw: initialize and configure
@@ -23,6 +60,18 @@ int	main()
 #ifdef __APPLE__
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
 #endif
+
+	B* pB = new B();
+
+	void* p = (void*)pB;
+
+	int* pBx = (int*)p;
+	int x = *pBx;
+	float* pBy = (float*)((byte*)p+sizeof(int));
+	float y = *pBy;
+
+	A* a = (A*)((byte*)p + sizeof(int) + sizeof(float));
+	A Aa = *a;
 
     // glfw window creation
     // --------------------
