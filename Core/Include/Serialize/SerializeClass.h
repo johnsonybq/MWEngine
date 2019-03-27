@@ -1,7 +1,7 @@
 #pragma once
 #include <vector>
 #include <string>
-#include "SerializeAttribute.h"
+#include "SerializeMember.h"
 #include "Reflect\IReflectFactory.h"
 
 
@@ -17,11 +17,26 @@ namespace Core
 
 	public:
 
+
+		// 设置类名
+		void			SetName(const char* name);
+
+
+		// 获取类名
+		const char*		GetName();
+
+
+		// 添加属性描述
+		void			Member(ESMemberType eType, const char* memberName);
+
+
+	private:
+
 		std::string				className;
 		IReflectFactory*		pFactory;
 		
-		using AttributeList = std::vector<SerializeAttribute*>;
-		AttributeList			attributes;
+		using MemberList = std::vector<SerializeMember*>;
+		MemberList			members;
 
 	};
 

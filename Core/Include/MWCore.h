@@ -24,4 +24,5 @@ namespace Core
 		static ClassName instance;							\
 		return &instance;									\
 	}
+												
 }

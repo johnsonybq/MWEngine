@@ -25,7 +25,7 @@ namespace Core
 		@param		[OUT]
 		return 		返回对象
 		*/
-		virtual	void*	CreateClass(const char*) VPURE;
+		virtual	void*	CreateClass(const char* className) VPURE;
 
 
 
@@ -35,7 +35,7 @@ namespace Core
 		@param		[OUT]
 		return 		销毁
 		*/
-		virtual	void	DestoryClass(void*) VPURE;
+		virtual	void	DestoryClass(void* pClass) VPURE;
 
 
 	};
@@ -66,7 +66,7 @@ namespace Core
 		virtual void	DestoryClass(void* pClass)
 		{
 			if (pClass != nullptr)
-				MW_Delete pClass；
+				MW_Delete pClass;
 		}
 	};
 
