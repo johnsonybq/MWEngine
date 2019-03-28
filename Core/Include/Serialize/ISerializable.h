@@ -27,10 +27,17 @@ namespace Core
 		@param		[OUT]
 		return 		返回类名
 		*/
-		const char*				GetSerializeClassName()
-		{
-			return nullptr;
-		}
+		virtual const char*				GetSerializeClassName() VPURE;
+
+
+
+		/**
+		@breif		获取序列化类长度
+
+		@param		[OUT]
+		return 		返回类长度
+		*/
+		virtual	int						GetSerializeClassSize() VPURE;
 
 
 	};
@@ -41,6 +48,7 @@ namespace Core
 	#define		SERIALIZE_REFLECT_CLASS(ClassName,Factory)					\
 public:												\
 	virtual	const char* GetSerializeClassName()		{return #ClassName;}	\
+	virtual	int GetSerializeClassSize()		{return sizeof(ClassName);}	\
 public:												\
 	static	const char* __GetClassName__()		{return #ClassName;}	\
 public:																		\

@@ -25,7 +25,7 @@ namespace Core
 
 		// 类文件描述
 		template<class T>
-		SerializeClass*						Class();
+		SerializeClass*						Class(int version = 0);
 
 
 
@@ -35,7 +35,18 @@ namespace Core
 
 
 		// 反序列化二进制
-		virtual	void						FromByteArray(ISerializable* pSerializable, ByteArray* bytes);
+		virtual	ISerializable* 				FromByteArray(ByteArray* bytes);
+
+
+	private:
+
+
+		// 序列化成员变量
+		void								MemberToByteArray(SerializeMember* pMember, ISerializable* pSerializable, ByteArray* bytes);
+
+
+		// 反序列化成员变量
+		void								MemberFromByteArray(SerializeMember* pMember, ISerializable* pSerializable, ByteArray* bytes, int configVersion);
 
 
 	private:
@@ -48,7 +59,7 @@ namespace Core
 
 
 	template<class T>
-	inline SerializeClass * SerializeManger::Class()
+	inline SerializeClass * SerializeManger::Class(int version)
 	{
 		const char* pClassName = T::__GetClassName__();
 
@@ -61,7 +72,9 @@ namespace Core
 			return itor->second;
 
 		SerializeClass* pClass = MW_New SerializeClass();
+
 		pClass->SetName(pClassName);
+		pClass->SetVersion(version);
 
 		m_allClass.insert(std::pair<std::string, SerializeClass*>(pClassName, pClass));
 

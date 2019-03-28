@@ -3,6 +3,7 @@
 #include <direct.h>
 #include "MWCoreAPI.h"
 #include "System\ISystem.h"
+#include <string>
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
@@ -37,17 +38,29 @@ public:
 
 	B()
 	{
-		x = 12345;
+		vx = 12345;
 		y = 200.0f;
+		str = "asdasdasd";
 	}
-private:
+public:
 
-	int x;
-	float y;
+	int vx;
 	A z;
+	float y;
+	std::string str;
+	bool s;
 };
 
+class Test
+{
+public:
 
+	template<class ClassType, class FieldType>
+	static int GetOffset(FieldType ClassType::* member)
+	{
+		return reinterpret_cast<size_t>(&(reinterpret_cast<ClassType const volatile*>(0)->*member));
+	}
+};
 int	main()
 {
 	// glfw: initialize and configure
@@ -68,6 +81,10 @@ int	main()
 	int* pBx = (int*)p;
 	int x = *pBx;
 	float* pBy = (float*)((byte*)p+sizeof(int));
+	int a1 = Test::GetOffset(&B::vx);
+	int a2 = Test::GetOffset(&B::str);
+	int a3 = Test::GetOffset(&B::y);
+	int a4 = Test::GetOffset(&B::z);
 	float y = *pBy;
 
 	A* a = (A*)((byte*)p + sizeof(int) + sizeof(float));

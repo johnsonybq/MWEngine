@@ -60,7 +60,7 @@ namespace Core
 		@param		[OUT]
 		return 		返回序列化类
 		*/
-		virtual	void						FromByteArray(ISerializable* pSerializable, ByteArray* bytes) VPURE;
+		virtual	ISerializable* 				FromByteArray(ByteArray* bytes) VPURE;
 
 
 
