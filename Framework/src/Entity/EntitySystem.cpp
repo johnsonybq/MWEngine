@@ -89,12 +89,12 @@ namespace Framework
 	ComponentID EntitySystem::AddComponent(EntityID & id, Component * pComponent)
 	{
 		if (pComponent == nullptr)
-			return INVALID_UUID;
+			return INVALID_UID;
 
 		Entity* pEntity = GetEntity(id);
 
 		if (pEntity == nullptr)
-			return INVALID_UUID;
+			return INVALID_UID;
 		
 		return pEntity->AddComponent(pComponent);
 	}

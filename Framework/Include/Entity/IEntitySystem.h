@@ -12,13 +12,12 @@
 #pragma once
 #include <string>
 #include "Entity.h"
-#include "ISystem.h"
 #include "EBus\EBus.h"
 
 
 namespace Framework
 {
-	class IEntitySystem : public ISystem
+	class IEntitySystem 
 	{
 	public:
 

@@ -26,7 +26,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool				Initialize() VPURE;
+		virtual	bool				Initialize() PURE;
 
 
 		/**
@@ -35,7 +35,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool				Register(const char* className, IReflectFactory* factory) VPURE;
+		virtual	bool				Register(const char* className, IReflectFactory* factory) PURE;
 
 
 		/**
@@ -44,7 +44,7 @@ namespace Core
 		@param		[OUT]
 		return 		反射工厂
 		*/
-		virtual	IReflectFactory*	GetReflectFactory(const char* className) VPURE;
+		virtual	IReflectFactory*	GetReflectFactory(const char* className) PURE;
 
 
 
@@ -54,7 +54,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool				UnRegister(const char* className) VPURE;
+		virtual	bool				UnRegister(const char* className) PURE;
 
 
 

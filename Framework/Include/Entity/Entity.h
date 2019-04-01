@@ -1,8 +1,9 @@
 #pragma once
 #include <map>
 #include <string>
+#include "MWCore.h"
 #include "Component.h"
-#include "IMiscellaneous.h"
+
 
 namespace Framework
 {

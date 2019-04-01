@@ -35,7 +35,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool			Initialize() VPURE;
+		virtual	bool			Initialize() PURE;
 
 
 
@@ -45,7 +45,7 @@ namespace Core
 		@param		[OUT]
 		return 		根目录
 		*/
-		virtual	const char*		GetRootPath() VPURE;
+		virtual	const char*		GetRootPath() PURE;
 
 
 		/**
@@ -54,7 +54,7 @@ namespace Core
 		@param		[OUT]
 		return 		小时
 		*/
-		virtual	int				GetLocalTime(TIME_TYPE timeType) VPURE;
+		virtual	int				GetLocalTime(TIME_TYPE timeType) PURE;
 
 
 	};

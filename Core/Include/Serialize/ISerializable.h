@@ -27,7 +27,7 @@ namespace Core
 		@param		[OUT]
 		return 		返回类名
 		*/
-		virtual const char*				GetSerializeClassName() VPURE;
+		virtual const char*				GetSerializeClassName() PURE;
 
 
 
@@ -37,7 +37,7 @@ namespace Core
 		@param		[OUT]
 		return 		返回类长度
 		*/
-		virtual	int						GetSerializeClassSize() VPURE;
+		virtual	int						GetSerializeClassSize() PURE;
 
 
 	};

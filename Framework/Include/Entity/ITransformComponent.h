@@ -257,7 +257,7 @@ namespace Framework
 
 	};
 
-	using TransformEBus = Framework::EBus<ITransformComponent>;
+	using TransformEBus = Core::EBus<ITransformComponent>;
 
 
 
@@ -282,6 +282,6 @@ namespace Framework
 		virtual	void			OnScaleChanged() PURE;
 	};
 
-	using TransformNotifyEBus = Framework::EBus<ITransformNotify>;
+	using TransformNotifyEBus = Core::EBus<ITransformNotify>;
 
 }

@@ -30,7 +30,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool						Initialize() VPURE;
+		virtual	bool						Initialize() PURE;
 
 
 		/**
@@ -50,7 +50,7 @@ namespace Core
 		@param		[OUT]
 		return 		返回序列化类
 		*/
-		virtual	ByteArray*					ToByteArray(ISerializable* pSerializable, ByteArray* bytes = nullptr) VPURE;
+		virtual	ByteArray*					ToByteArray(ISerializable* pSerializable, ByteArray* bytes = nullptr) PURE;
 
 
 
@@ -60,7 +60,7 @@ namespace Core
 		@param		[OUT]
 		return 		返回序列化类
 		*/
-		virtual	ISerializable* 				FromByteArray(ByteArray* bytes) VPURE;
+		virtual	ISerializable* 				FromByteArray(ByteArray* bytes) PURE;
 
 
 

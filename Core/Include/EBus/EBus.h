@@ -29,13 +29,13 @@ namespace Core
 		static void		BusDisconnect(UID id, Interface* pInterface);
 
 		template<class Fuction, class ... InputArgs>
-		static void		Event(UID uid, Fuction fuc, InputArgs&& ... args);
+		static void		Event(UID id, Fuction fuc, InputArgs&& ... args);
 
 		template<class Fuction, class ... InputArgs>
 		static void		Broadcast(Fuction fuc, InputArgs&& ... args);
 
 		template<class Result,class Fuction, class ... InputArgs>
-		static void		EventResult(Result& result, UID uid, Fuction fuc, InputArgs&& ... args);
+		static void		EventResult(Result& result, UID id, Fuction fuc, InputArgs&& ... args);
 
 		template<class Result, class Fuction, class ... InputArgs>
 		static void		BroadcastResult(Result& result, Fuction fuc, InputArgs&& ... args);
@@ -109,9 +109,9 @@ namespace Core
 
 	template<class Interface>
 	template<class Fuction, class ...InputArgs>
-	inline void EBus<Interface>::Event(UID uid, Fuction fuc, InputArgs && ...args)
+	inline void EBus<Interface>::Event(UID id, Fuction fuc, InputArgs && ...args)
 	{
-		AllCallBack::iterator itor = m_callBacks.find(uid);
+		AllCallBack::iterator itor = m_callBacks.find(id);
 
 		if (itor == m_callBacks.end())
 			return;
@@ -165,9 +165,9 @@ namespace Core
 
 	template<class Interface>
 	template<class Result, class Fuction, class ...InputArgs>
-	inline void EBus<Interface>::EventResult(Result & result, UID uid, Fuction fuc, InputArgs && ...args)
+	inline void EBus<Interface>::EventResult(Result & result, UID id, Fuction fuc, InputArgs && ...args)
 	{
-		AllCallBack::iterator itor = m_callBacks.find(uid);
+		AllCallBack::iterator itor = m_callBacks.find(id);
 
 		if (itor == m_callBacks.end())
 			return;

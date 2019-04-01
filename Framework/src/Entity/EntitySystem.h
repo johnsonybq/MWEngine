@@ -62,6 +62,6 @@ namespace Framework
 		using EntityMap = std::map<EntityID, Entity*>;
 		EntityMap			m_entities;
 
-		UUID				m_curEntityID;
+		EntityID				m_curEntityID;
 	};
 }

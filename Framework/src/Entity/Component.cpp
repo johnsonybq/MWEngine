@@ -5,7 +5,7 @@ namespace Framework
 {
 
 	Component::Component()
-		:m_entityID(INVALID_UUID), m_componentID(INVALID_UUID)
+		:m_entityID(INVALID_UID), m_componentID(INVALID_UID)
 	{
 		
 	}

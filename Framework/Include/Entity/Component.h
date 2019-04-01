@@ -1,10 +1,12 @@
 #pragma once
-#include "IMiscellaneous.h"
+#include "MWCore.h"
 
 namespace Framework
 {
 	// 在实体上的索引ID
-	using ComponentID = UUID;
+	using ComponentID = UID;
+	using EntityID = UID;
+	#define		INVALID_UID 0xffffffff
 
 	class Component
 	{

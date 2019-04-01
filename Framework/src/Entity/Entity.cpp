@@ -8,7 +8,7 @@ namespace Framework
 		:m_curComponentID(0)
 	{
 	
-		m_entityID = INVALID_UUID;
+		m_entityID = INVALID_UID;
 		m_name = "";
 		
 		TransformComponent* pTransform = new TransformComponent();
@@ -38,7 +38,7 @@ namespace Framework
 	ComponentID Entity::AddComponent(Component * pComponent)
 	{
 		if (pComponent == nullptr)
-			return INVALID_UUID;
+			return INVALID_UID;
 
 		pComponent->Initialization();
 		pComponent->SetEntityID(m_entityID);
