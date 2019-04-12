@@ -3,7 +3,7 @@
 #include <string>
 #include "MWCore.h"
 #include "Component.h"
-
+#include "Serialize\ISerializable.h"
 
 namespace Framework
 {
@@ -16,6 +16,8 @@ namespace Framework
 
 	class Entity
 	{
+		SERIALIZE_DEFAULTREFLECT_CLASS(Framework::Entity);
+
 	public:
 
 		Entity();

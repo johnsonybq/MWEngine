@@ -13,6 +13,7 @@
 #include <string>
 #include "MWCore.h"
 #include "Reflect\IReflectFactory.h"
+#include "Reflect\IReflectManager.h"
 
 namespace Core
 {
@@ -27,7 +28,7 @@ namespace Core
 		@param		[OUT]
 		return 		返回类名
 		*/
-		virtual const char*				GetSerializeClassName() PURE;
+		virtual const char*				GetSerializeClassName() VPURE;
 
 
 
@@ -37,7 +38,7 @@ namespace Core
 		@param		[OUT]
 		return 		返回类长度
 		*/
-		virtual	int						GetSerializeClassSize() PURE;
+		virtual	int						GetSerializeClassSize() VPURE;
 
 
 	};
@@ -52,8 +53,9 @@ public:												\
 public:												\
 	static	const char* __GetClassName__()		{return #ClassName;}	\
 public:																		\
-	static void	RegisterReflect()	{Core::ReflectionEBus::Broadcast(&Core::IReflectManager::Register, #ClassName, MW_New Factory());}
-
+	static void	RegisterReflect()	{Core::ReflectionEBus::Broadcast(&Core::IReflectManager::Register, #ClassName, MW_New Factory());}	\
+	static void SerializeReflect();					\
+	static void RegisterSerializeReflect() {ClassName::RegisterReflect(); ClassName::SerializeReflect();}								
 }
 
 

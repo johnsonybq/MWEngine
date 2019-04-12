@@ -11,12 +11,12 @@ namespace Core
 
 		virtual ~Module() {};
 
-	private:
+		virtual bool	Initialize() { return false; }
 
 	};
 }
 
 
-#   define INITIALIZATION_MODULE_CLASS(MODULE_NAME, MODULE_CLASSNAME)                                \                                                           \
-    extern "C" DLL_EXPORTS Core::Module * CreateModuleClass() { return aznew MODULE_CLASSNAME; } \
-    extern "C" DLL_EXPORTS void DestroyModuleClass(AZ::Module * module) { delete module; }
+#   define INITIALIZATION_MODULE_CLASS(MODULE_CLASSNAME)                                \                                                           \
+    extern "C" extern DLL_EXPORTS  Core::Module * CreateModuleClass() { return MW_New MODULE_CLASSNAME; }  \
+    extern "C" extern DLL_EXPORTS  void DestroyModuleClass(Core::Module * module) { MW_Delete module; } 

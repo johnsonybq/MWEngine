@@ -1,6 +1,6 @@
 #include "Log\ILog.h"
 #include "ReflectManager.h"
-
+#include "BaseDataReflectFactory.h"
 
 namespace Core
 {
@@ -20,6 +20,18 @@ namespace Core
 	bool ReflectManager::Initialize()
 	{
 		ReflectionEBus::BusConnect(this);
+		BaseDataReflectFactory* pBaseFactory = MW_New BaseDataReflectFactory();
+
+		Register("string", pBaseFactory);		Register("std::string", pBaseFactory);
+		Register("int16", pBaseFactory);		Register("Core::int16", pBaseFactory);
+		Register("vec1", pBaseFactory);			Register("Core::vec1", pBaseFactory);
+		Register("vec2", pBaseFactory);			Register("Core::vec2", pBaseFactory);
+		Register("vec3", pBaseFactory);			Register("Core::vec3", pBaseFactory);
+		Register("vec4", pBaseFactory);			Register("Core::vec4", pBaseFactory);
+		Register("mat4", pBaseFactory);			Register("Core::mat4", pBaseFactory);
+		Register("mat3", pBaseFactory);			Register("Core::mat3", pBaseFactory);
+		Register("mat2", pBaseFactory);			Register("Core::mat2", pBaseFactory);
+
 		return true;
 	}
 

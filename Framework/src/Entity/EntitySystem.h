@@ -7,7 +7,6 @@ namespace Framework
 {
 	class EntitySystem : public IEntitySystem
 	{
-
 		SINGLETON_IMPLEMENT(EntitySystem);
 
 	public:

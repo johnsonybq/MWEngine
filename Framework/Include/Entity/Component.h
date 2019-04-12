@@ -1,6 +1,6 @@
 #pragma once
 #include "MWCore.h"
-
+#include "Serialize\ISerialize.h"
 namespace Framework
 {
 	// 在实体上的索引ID
@@ -10,6 +10,8 @@ namespace Framework
 
 	class Component
 	{
+		SERIALIZE_DEFAULTREFLECT_CLASS(Framework::Component);
+
 	public:
 
 		Component();
@@ -53,13 +55,13 @@ namespace Framework
 		/**
 			激活组件
 		*/
-		virtual void			Activate() = 0;
+		virtual void			Activate() {};
 
 
 		/**
 			停用组件
 		*/
-		virtual void			Deactivate() = 0;
+		virtual void			Deactivate() {};
 
 
 	protected:

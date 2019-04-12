@@ -24,7 +24,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool	Initialize() PURE;
+		virtual	bool	Initialize() VPURE;
 
 		
 		/**
@@ -36,7 +36,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool	LoadModule(const char* path) PURE;
+		virtual	bool	LoadModule(const char* path) VPURE;
 
 
 
@@ -49,7 +49,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool	LoadAllModules(const char* path) PURE;
+		virtual	bool	LoadAllModules(const char* path) VPURE;
 
 
 
@@ -62,7 +62,7 @@ namespace Core
 		@param		[OUT]
 		return 		是否已经加载该模块
 		*/
-		virtual	bool	IsLoadModule(const char* path) PURE;
+		virtual	bool	IsLoadModule(const char* path) VPURE;
 
 
 		/**
@@ -74,7 +74,7 @@ namespace Core
 		@param		[OUT]
 		return 		移除成功/失败
 		*/
-		virtual	bool	RemoveModule(const char* path) PURE;
+		virtual	bool	RemoveModule(const char* path) VPURE;
 
 
 		/**
@@ -83,7 +83,7 @@ namespace Core
 		@param		[OUT]
 		return 		移除成功/失败
 		*/
-		virtual	bool	RemoveAllModules() PURE;
+		virtual	bool	RemoveAllModules() VPURE;
 
 
 	};

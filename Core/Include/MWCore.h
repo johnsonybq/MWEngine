@@ -12,6 +12,7 @@ namespace Core
 	#define DLL_EXPORTS __declspec(dllimport)
 	#endif
 
+	#define VPURE = 0;
 
 	// 定义单键提供接口的函数
 	#define		SINGLETON_IMPLEMENT( ClassName )			\

@@ -28,7 +28,7 @@ file(
 )
 
 #…Ë÷√libø‚Œƒº˛º–
-add_library(${ENGINE_PROJECT_NAME} ${ALL_CODES})
+add_library(${ENGINE_PROJECT_NAME} SHARED ${ALL_CODES})
 
 link_directories(${CMAKE_CURRENT_LIST_DIR}/../WorkSpace/lib)
 link_libraries(MWMath.lib) 

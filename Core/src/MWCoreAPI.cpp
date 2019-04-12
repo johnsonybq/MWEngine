@@ -25,7 +25,9 @@ namespace Core
 		LogManager::GetInstance()->Initialize();
 		ReflectManager::GetInstance()->Initialize();
 		SerializeManger::GetInstance()->Initialize();
+		ModuleManager::GetInstance()->Initialize();
 
+		ModuleManager::GetInstance()->LoadModule("E:\\MWEngine\\WorkSpace\\lib\\Debug\\Framework.dll");
 
 		Test::RegisterReflect();
 		SerializeClass* pTestClassInfo = SerializeManger::GetInstance()->Class<Test>();

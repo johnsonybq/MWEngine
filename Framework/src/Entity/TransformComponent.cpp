@@ -1,15 +1,16 @@
 #include <glm/ext/matrix_transform.hpp>
 #include "TransformComponent.h"
+#include "Serialize\ISerialize.h"
 
 namespace Framework
 {
 
 	TransformComponent::TransformComponent()
 	{
-		m_position = glm::vec3(0.0, 0.0, 0.0);
-		m_rotation = glm::vec3(0.0, 0.0, 0.0);
-		m_scale = glm::vec3(1.0, 1.0, 1.0);
-		m_matrix = glm::mat4(1.0);
+		m_position = Core::vec3(0.0, 0.0, 0.0);
+		m_rotation = Core::vec3(0.0, 0.0, 0.0);
+		m_scale = Core::vec3(1.0, 1.0, 1.0);
+		m_matrix = Core::mat4(1.0);
 	}
 
 	TransformComponent::~TransformComponent()
@@ -29,7 +30,19 @@ namespace Framework
 		TransformEBus::BusDisconnect(entityID, this);
 	}
 
-	void TransformComponent::SetPosition(glm::vec3 & pos)
+
+	void TransformComponent::SerializeReflect()
+	{
+		Core::SerializeClass* pSerialize = nullptr;
+		Core::SerializeEBus::BroadcastResult(pSerialize, &Core::ISerialize::Class<Framework::TransformComponent>);
+
+		if (pSerialize != nullptr)
+		{
+
+		}
+	}
+
+	void TransformComponent::SetPosition(Core::vec3 & pos)
 	{
 		m_position = pos;
 
@@ -38,7 +51,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnPositionChanged);
 	}
 
-	void TransformComponent::SetPositionByXYZ(glm::f32 posx, glm::f32 posy, glm::f32 posz)
+	void TransformComponent::SetPositionByXYZ(Core::f32 posx, Core::f32 posy, Core::f32 posz)
 	{
 		m_position.x = posx;
 		m_position.y = posy;
@@ -49,7 +62,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnPositionChanged);
 	}
 
-	void TransformComponent::SetPositionX(glm::f32 posx)
+	void TransformComponent::SetPositionX(Core::f32 posx)
 	{
 		m_position.x = posx;
 
@@ -58,7 +71,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnPositionChanged);
 	}
 
-	void TransformComponent::SetPositionY(glm::f32 posy)
+	void TransformComponent::SetPositionY(Core::f32 posy)
 	{
 		m_position.y = posy;
 
@@ -67,7 +80,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnPositionChanged);
 	}
 
-	void TransformComponent::SetPositionZ(glm::f32 posz)
+	void TransformComponent::SetPositionZ(Core::f32 posz)
 	{
 		m_position.z = posz;
 
@@ -76,27 +89,27 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnPositionChanged);
 	}
 
-	glm::vec3 & TransformComponent::GetPosition()
+	Core::vec3 & TransformComponent::GetPosition()
 	{
 		return m_position;
 	}
 
-	glm::f32 TransformComponent::GetPositionX()
+	Core::f32 TransformComponent::GetPositionX()
 	{
 		return m_position.x;
 	}
 
-	glm::f32 TransformComponent::GetPositionY()
+	Core::f32 TransformComponent::GetPositionY()
 	{
 		return m_position.y;
 	}
 
-	glm::f32 TransformComponent::GetPositionZ()
+	Core::f32 TransformComponent::GetPositionZ()
 	{
 		return m_position.z;
 	}
 
-	void TransformComponent::SetRotation(glm::vec3 & rot)
+	void TransformComponent::SetRotation(Core::vec3 & rot)
 	{
 		m_rotation = rot;
 
@@ -105,7 +118,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnRotationChanged);
 	}
 
-	void TransformComponent::SetRotationX(glm::f32 rotx)
+	void TransformComponent::SetRotationX(Core::f32 rotx)
 	{
 		m_rotation.x = rotx;
 
@@ -114,7 +127,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnRotationChanged);
 	}
 
-	void TransformComponent::SetRotationY(glm::f32 roty)
+	void TransformComponent::SetRotationY(Core::f32 roty)
 	{
 		m_rotation.y = roty;
 
@@ -123,7 +136,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnRotationChanged);
 	}
 
-	void TransformComponent::SetRotationZ(glm::f32 rotz)
+	void TransformComponent::SetRotationZ(Core::f32 rotz)
 	{
 		m_rotation.z = rotz;
 
@@ -132,27 +145,27 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnRotationChanged);
 	}
 
-	glm::vec3 & TransformComponent::GetRotation()
+	Core::vec3 & TransformComponent::GetRotation()
 	{
 		return m_rotation;
 	}
 
-	glm::f32 & TransformComponent::GetRotationX()
+	Core::f32 & TransformComponent::GetRotationX()
 	{
 		return m_rotation.x;
 	}
 
-	glm::f32 & TransformComponent::GetRotationY()
+	Core::f32 & TransformComponent::GetRotationY()
 	{
 		return m_rotation.y;
 	}
 
-	glm::f32 & TransformComponent::GetRotationZ()
+	Core::f32 & TransformComponent::GetRotationZ()
 	{
 		return m_rotation.z;
 	}
 
-	void TransformComponent::SetScale(glm::vec3 & scale)
+	void TransformComponent::SetScale(Core::vec3 & scale)
 	{
 		m_scale = scale;
 
@@ -161,7 +174,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnRotationChanged);
 	}
 
-	void TransformComponent::SetScaleX(glm::f32 & scalex)
+	void TransformComponent::SetScaleX(Core::f32 & scalex)
 	{
 		m_scale.x = scalex;
 
@@ -170,7 +183,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnRotationChanged);
 	}
 
-	void TransformComponent::SetScaleY(glm::f32 & scaley)
+	void TransformComponent::SetScaleY(Core::f32 & scaley)
 	{
 		m_scale.y = scaley;
 
@@ -179,7 +192,7 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnRotationChanged);
 	}
 
-	void TransformComponent::SetScaleZ(glm::f32 & scalez)
+	void TransformComponent::SetScaleZ(Core::f32 & scalez)
 	{
 		m_scale.z = scalez;
 
@@ -188,34 +201,34 @@ namespace Framework
 		TransformNotifyEBus::Event(GetEntityID(), &ITransformNotify::OnRotationChanged);
 	}
 
-	glm::vec3 & TransformComponent::GetScale()
+	Core::vec3 & TransformComponent::GetScale()
 	{
 		return m_scale;
 	}
 
-	glm::f32 & TransformComponent::GetScaleX()
+	Core::f32 & TransformComponent::GetScaleX()
 	{
 		return m_scale.x;
 	}
 
-	glm::f32 & TransformComponent::GetScaleY()
+	Core::f32 & TransformComponent::GetScaleY()
 	{
 		return m_scale.y;
 	}
 
-	glm::f32 & TransformComponent::GetScaleZ()
+	Core::f32 & TransformComponent::GetScaleZ()
 	{
 		return m_scale.z;
 	}
 
 	void TransformComponent::UpdateMatrix()
 	{
-		m_matrix = glm::mat4(1.0);
-		m_matrix = glm::rotate(m_matrix, m_rotation.x, glm::vec3(1, 0, 0));
-		m_matrix = glm::rotate(m_matrix, m_rotation.y, glm::vec3(0, 1, 0));
-		m_matrix = glm::rotate(m_matrix, m_rotation.z, glm::vec3(0, 0, 1));
-		m_matrix = glm::scale(m_matrix,m_scale);
-		m_matrix = glm::translate(m_matrix,m_position);
+		m_matrix = Core::mat4(1.0);
+		m_matrix = Core::rotate(m_matrix, m_rotation.x, Core::vec3(1, 0, 0));
+		m_matrix = Core::rotate(m_matrix, m_rotation.y, Core::vec3(0, 1, 0));
+		m_matrix = Core::rotate(m_matrix, m_rotation.z, Core::vec3(0, 0, 1));
+		m_matrix = Core::scale(m_matrix,m_scale);
+		m_matrix = Core::translate(m_matrix,m_position);
 	}
 
 }

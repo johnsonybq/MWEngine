@@ -41,6 +41,17 @@ file(
 	"${SRC_Path}/Include/System/*.h"
 	"${SRC_Path}/Include/Reflect/*.h"
 	"${SRC_Path}/Include/Serialize/*.h"
+	"${SRC_Path}/Include/GLM/*.hpp"
+	"${SRC_Path}/Include/GLM/detail/*.hpp"
+	"${SRC_Path}/Include/GLM/detail/*.inl"
+	"${SRC_Path}/Include/GLM/ext/*.hpp"
+	"${SRC_Path}/Include/GLM/ext/*.inl"
+	"${SRC_Path}/Include/GLM/gtc/*.hpp"
+	"${SRC_Path}/Include/GLM/gtc/*.inl"
+	"${SRC_Path}/Include/GLM/gtx/*.hpp"
+	"${SRC_Path}/Include/GLM/gtx/*.inl"
+	"${SRC_Path}/Include/GLM/simd/*.hpp"
+	"${SRC_Path}/Include/GLM/simd/*.inl"
 )
 
 #…Ë÷√libø‚Œƒº˛º–
@@ -79,3 +90,8 @@ source_group("Include\\Log" REGULAR_EXPRESSION "${SRC_Path}/Include/Log/${REG_EX
 source_group("Include\\System" REGULAR_EXPRESSION "${SRC_Path}/Include/System/${REG_EXT}")
 source_group("Include\\Reflect" REGULAR_EXPRESSION "${SRC_Path}/Include/Reflect/${REG_EXT}")
 source_group("Include\\Serialize" REGULAR_EXPRESSION "${SRC_Path}/Include/Serialize/${REG_EXT}")
+source_group("Include\\GLM" REGULAR_EXPRESSION "${SRC_Path}/Include/GLM/${REG_EXT}")
+source_group("Include\\GLM\\detail" REGULAR_EXPRESSION "${SRC_Path}/Include/GLM/detail/${REG_EXT}")
+source_group("Include\\GLM\\ext" REGULAR_EXPRESSION "${SRC_Path}/Include/GLM/ext/${REG_EXT}")
+source_group("Include\\GLM\\gtx" REGULAR_EXPRESSION "${SRC_Path}/Include/GLM/gtx/${REG_EXT}")
+source_group("Include\\GLM\\simd" REGULAR_EXPRESSION "${SRC_Path}/Include/GLM/simd/${REG_EXT}")

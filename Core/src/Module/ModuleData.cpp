@@ -68,6 +68,7 @@ namespace Core
 	{
 		if (m_handle != NULL && functionName != nullptr)
 		{
+			void* pFuc = ::GetProcAddress(m_handle, functionName);
 			return reinterpret_cast<Function>(::GetProcAddress(m_handle, functionName));
 		}
 		else

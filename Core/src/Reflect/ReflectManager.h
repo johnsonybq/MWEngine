@@ -43,6 +43,5 @@ namespace Core
 
 		using ReflectMap = std::map<std::string, IReflectFactory*>;
 		ReflectMap			m_reflectMap;
-
 	};
 }

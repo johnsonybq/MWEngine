@@ -25,7 +25,7 @@ namespace Framework
 		@param		[IN]
 		pos			位置信息
 		*/
-		virtual	void			SetPosition(glm::vec3& pos) PURE;
+		virtual	void			SetPosition(Core::vec3& pos) PURE;
 
 		
 		/**
@@ -40,7 +40,7 @@ namespace Framework
 		@param		[IN]
 		posz		位置Z
 		*/
-		virtual	void			SetPositionByXYZ(glm::f32 posx, glm::f32 posy, glm::f32 posz) PURE;
+		virtual	void			SetPositionByXYZ(Core::f32 posx, Core::f32 posy, Core::f32 posz) PURE;
 
 
 		/**
@@ -49,7 +49,7 @@ namespace Framework
 		@param		[IN]
 		posx		位置X
 		*/
-		virtual	void			SetPositionX(glm::f32 posx) PURE;
+		virtual	void			SetPositionX(Core::f32 posx) PURE;
 
 
 		/**
@@ -58,7 +58,7 @@ namespace Framework
 		@param		[IN]
 		posy		位置Y
 		*/
-		virtual	void			SetPositionY(glm::f32 posy) PURE;
+		virtual	void			SetPositionY(Core::f32 posy) PURE;
 
 
 		/**
@@ -67,7 +67,7 @@ namespace Framework
 		@param		[IN]
 		posz		位置Z
 		*/
-		virtual	void			SetPositionZ(glm::f32 posz) PURE;
+		virtual	void			SetPositionZ(Core::f32 posz) PURE;
 
 
 
@@ -77,7 +77,7 @@ namespace Framework
 		@param		[Out]
 		pos			位置信息
 		*/
-		virtual	glm::vec3&		GetPosition() PURE;
+		virtual	Core::vec3&		GetPosition() PURE;
 
 
 		/**
@@ -86,7 +86,7 @@ namespace Framework
 		@param		[Out]
 		posx			位置信息
 		*/
-		virtual	glm::f32		GetPositionX() PURE;
+		virtual	Core::f32		GetPositionX() PURE;
 
 
 		/**
@@ -95,7 +95,7 @@ namespace Framework
 		@param		[Out]
 		posy			位置信息
 		*/
-		virtual	glm::f32		GetPositionY() PURE;
+		virtual	Core::f32		GetPositionY() PURE;
 
 
 		/**
@@ -104,7 +104,7 @@ namespace Framework
 		@param		[Out]
 		posz			位置信息
 		*/
-		virtual	glm::f32		GetPositionZ() PURE;
+		virtual	Core::f32		GetPositionZ() PURE;
 
 
 
@@ -114,7 +114,7 @@ namespace Framework
 		@param		[IN]
 		rot			旋转信息
 		*/
-		virtual	void			SetRotation(glm::vec3& rot) PURE;
+		virtual	void			SetRotation(Core::vec3& rot) PURE;
 
 
 		/**
@@ -123,7 +123,7 @@ namespace Framework
 		@param		[In]
 		rotx		旋转信息
 		*/
-		virtual	void			SetRotationX(glm::f32 rotx) PURE;
+		virtual	void			SetRotationX(Core::f32 rotx) PURE;
 
 
 		/**
@@ -132,7 +132,7 @@ namespace Framework
 		@param		[In]
 		rot			旋转信息
 		*/
-		virtual	void			SetRotationY(glm::f32 roty) PURE;
+		virtual	void			SetRotationY(Core::f32 roty) PURE;
 
 
 		/**
@@ -141,7 +141,7 @@ namespace Framework
 		@param		[In]
 		rot			旋转信息
 		*/
-		virtual	void			SetRotationZ(glm::f32 rotz) PURE;
+		virtual	void			SetRotationZ(Core::f32 rotz) PURE;
 
 
 		/**
@@ -150,7 +150,7 @@ namespace Framework
 		@param		[Out]
 		rot			旋转信息
 		*/
-		virtual	glm::vec3&		GetRotation() PURE;
+		virtual	Core::vec3&		GetRotation() PURE;
 
 
 		/**
@@ -159,7 +159,7 @@ namespace Framework
 		@param		[Out]
 		rotx		旋转信息
 		*/
-		virtual	glm::f32&		GetRotationX() PURE;
+		virtual	Core::f32&		GetRotationX() PURE;
 
 
 		/**
@@ -168,7 +168,7 @@ namespace Framework
 		@param		[Out]
 		rot			旋转信息
 		*/
-		virtual	glm::f32&		GetRotationY() PURE;
+		virtual	Core::f32&		GetRotationY() PURE;
 
 
 		/**
@@ -177,7 +177,7 @@ namespace Framework
 		@param		[Out]
 		rot			旋转信息
 		*/
-		virtual	glm::f32&		GetRotationZ() PURE;
+		virtual	Core::f32&		GetRotationZ() PURE;
 
 
 		
@@ -187,7 +187,7 @@ namespace Framework
 		@param		[IN]
 		scale		缩放信息
 		*/
-		virtual	void			SetScale(glm::vec3& scale) PURE;
+		virtual	void			SetScale(Core::vec3& scale) PURE;
 
 
 		/**
@@ -196,7 +196,7 @@ namespace Framework
 		@param		[IN]
 		scale		缩放信息
 		*/
-		virtual	void			SetScaleX(glm::f32& scalex) PURE;
+		virtual	void			SetScaleX(Core::f32& scalex) PURE;
 
 
 		/**
@@ -205,7 +205,7 @@ namespace Framework
 		@param		[IN]
 		scaley		缩放信息
 		*/
-		virtual	void			SetScaleY(glm::f32& scaley) PURE;
+		virtual	void			SetScaleY(Core::f32& scaley) PURE;
 
 
 		/**
@@ -214,7 +214,7 @@ namespace Framework
 		@param		[IN]
 		scalez		缩放信息
 		*/
-		virtual	void			SetScaleZ(glm::f32& scalez) PURE;
+		virtual	void			SetScaleZ(Core::f32& scalez) PURE;
 
 
 		/**
@@ -223,7 +223,7 @@ namespace Framework
 		@param		[Out]
 		scale			缩放信息
 		*/
-		virtual	glm::vec3&		GetScale() PURE;
+		virtual	Core::vec3&		GetScale() PURE;
 
 
 		/**
@@ -232,7 +232,7 @@ namespace Framework
 		@param		[Out]
 		scalex		旋转信息
 		*/
-		virtual	glm::f32&		GetScaleX() PURE;
+		virtual	Core::f32&		GetScaleX() PURE;
 
 
 		/**
@@ -241,7 +241,7 @@ namespace Framework
 		@param		[Out]
 		scaleY		旋转信息
 		*/
-		virtual	glm::f32&		GetScaleY() PURE;
+		virtual	Core::f32&		GetScaleY() PURE;
 
 
 		/**
@@ -250,7 +250,7 @@ namespace Framework
 		@param		[Out]
 		scalez		旋转信息
 		*/
-		virtual	glm::f32&		GetScaleZ() PURE;
+		virtual	Core::f32&		GetScaleZ() PURE;
 
 
 

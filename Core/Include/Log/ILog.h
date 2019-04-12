@@ -25,7 +25,7 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool	Initialize() PURE;
+		virtual	bool	Initialize() VPURE;
 
 
 		/**
@@ -34,7 +34,7 @@ namespace Core
 		@param		[IN]
 		msg			日志内容
 		*/
-		virtual	void	Log(const char* path, ...) PURE;
+		virtual	void	Log(const char* path, ...) VPURE;
 
 
 
@@ -44,7 +44,7 @@ namespace Core
 		@param		[IN]
 		msg			日志内容
 		*/
-		virtual	void	Warning(const char* path, ...) PURE;
+		virtual	void	Warning(const char* path, ...) VPURE;
 
 
 
@@ -54,7 +54,7 @@ namespace Core
 		@param		[IN]
 		msg			日志内容
 		*/
-		virtual	void	Error(const char* path, ...) PURE;
+		virtual	void	Error(const char* path, ...) VPURE;
 
 
 		/**
@@ -63,7 +63,7 @@ namespace Core
 		@param		[IN]
 		msg			日志内容
 		*/
-		virtual	void	LogToFile(const char* path, ...) PURE;
+		virtual	void	LogToFile(const char* path, ...) VPURE;
 
 
 		/**
@@ -72,13 +72,13 @@ namespace Core
 		@param		[IN]
 		path		日志地址
 		*/
-		virtual	void	OpenLogFile(const char* path) PURE;
+		virtual	void	OpenLogFile(const char* path) VPURE;
 
 
 		/**
 		@breif		关闭Log文件
 		*/
-		virtual	void	CloseLogFile(const char* path) PURE;
+		virtual	void	CloseLogFile(const char* path) VPURE;
 
 
 	};
