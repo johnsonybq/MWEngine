@@ -20,7 +20,7 @@ namespace Core
 	bool ReflectManager::Initialize()
 	{
 		ReflectionEBus::BusConnect(this);
-		BaseDataReflectFactory* pBaseFactory = MW_New BaseDataReflectFactory();
+		BaseDataReflectFactory* pBaseFactory = new BaseDataReflectFactory();
 
 		Register("string", pBaseFactory);		Register("std::string", pBaseFactory);
 		Register("int16", pBaseFactory);		Register("Core::int16", pBaseFactory);
@@ -82,7 +82,7 @@ namespace Core
 			return false;
 
 		if (itor->second != nullptr)
-			MW_Delete(itor->second);
+			delete(itor->second);
 
 		m_reflectMap.erase(itor);
 		return false;

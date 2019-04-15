@@ -51,7 +51,14 @@ namespace Framework
 
 
 	};
+
+	void		FrameworkModule::SerializeReflect()
+	{
+
+	}
+
 }
 
-extern "C" extern DLL_EXPORTS  Core::Module * CreateModuleClass() { return MW_New Framework::FrameworkModule; }  
-extern "C" extern DLL_EXPORTS  void DestroyModuleClass(Core::Module * module) { MW_Delete module; }
+
+
+INITIALIZATION_MODULE_CLASS(Framework::FrameworkModule);

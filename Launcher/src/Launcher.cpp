@@ -4,6 +4,7 @@
 #include "MWCoreAPI.h"
 #include "System\ISystem.h"
 #include <string>
+#include "Memory\MemoryDefine.h"
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 void mouse_callback(GLFWwindow* window, double xpos, double ypos);
 void scroll_callback(GLFWwindow* window, double xoffset, double yoffset);
@@ -74,21 +75,12 @@ int	main()
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE); // uncomment this statement to fix compilation on OS X
 #endif
 
-	B* pB = new B();
+	B* pB = MW_New B();
 
 	void* p = (void*)pB;
 
 	int* pBx = (int*)p;
-	int x = *pBx;
-	float* pBy = (float*)((byte*)p+sizeof(int));
-	int a1 = Test::GetOffset(&B::vx);
-	int a2 = Test::GetOffset(&B::str);
-	int a3 = Test::GetOffset(&B::y);
-	int a4 = Test::GetOffset(&B::z);
-	float y = *pBy;
-
-	A* a = (A*)((byte*)p + sizeof(int) + sizeof(float));
-	A Aa = *a;
+	
 
     // glfw window creation
     // --------------------

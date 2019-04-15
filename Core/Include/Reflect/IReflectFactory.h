@@ -58,7 +58,7 @@ namespace Core
 		// ´´½¨
 		virtual	void*	CreateClass(const char* className)
 		{
-			return MW_New Class();
+			return new Class();
 		}
 
 
@@ -66,7 +66,7 @@ namespace Core
 		virtual void	DestoryClass(void* pClass)
 		{
 			if (pClass != nullptr)
-				MW_Delete pClass;
+				delete pClass;
 		}
 	};
 

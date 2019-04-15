@@ -5,7 +5,6 @@
 #include "Module\ModuleData.h"
 #include "Module\IModuleManager.h"
 
-
 namespace Core
 {
 	class ModuleManager : public IModuleManager
@@ -50,6 +49,7 @@ namespace Core
 
 		using  ModuleMap = std::map<std::string, ModuleData*>;
 		ModuleMap			m_moduleMap;
-
 	};
+
+	
 }

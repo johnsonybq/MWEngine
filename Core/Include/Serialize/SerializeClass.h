@@ -82,7 +82,7 @@ namespace Core
 
 		smember = nullptr;
 
-		smember = MW_New SerializeMember;
+		smember = new SerializeMember;
 		smember->eMemberType = eType;
 		smember->memberName = memberName;
 		smember->offset = reinterpret_cast<size_t>(&(reinterpret_cast<ClassType const volatile*>(0)->*member));

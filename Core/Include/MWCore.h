@@ -1,5 +1,4 @@
 #pragma once
-#include "Memory\MemoryDefine.h"
 
 namespace Core
 {

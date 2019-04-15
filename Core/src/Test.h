@@ -2,12 +2,13 @@
 #include <string>
 #include "Reflect\IReflectFactory.h"
 #include "Serialize\ISerializable.h"
+#include "Module\Module.h"
 
 namespace Core
 {
 	
 
-	class Test : public ISerializable
+	class Test : public ISerializable, public Module
 	{
 		SERIALIZE_DEFAULTREFLECT_CLASS(Core::Test)
 
@@ -29,7 +30,7 @@ namespace Core
 
 
 	};
-
+	INITIALIZATION_MODULE_CLASS(Test);
 
 	class MyClass : public ISerializable
 	{

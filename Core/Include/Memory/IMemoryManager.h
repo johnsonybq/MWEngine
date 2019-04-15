@@ -14,7 +14,6 @@
 
 namespace Core
 {
-
 	class IMemoryManager
 	{
 	public:
@@ -26,16 +25,17 @@ namespace Core
 		@param		[OUT]
 		return 		加载成功/失败
 		*/
-		virtual	bool	Initialize() = 0;
+		virtual	bool	Initialize() VPURE;
 
 
+		
 		/**
 		@breif		分配内存
 
 		@param		[OUT]
 		return 		分配的内存地址
 		*/
-		virtual void*		Allocation(size_t nSize, const char* pFile, int nLine) = 0;
+		virtual void*		Allocation(size_t nSize, const char* pFile, int nLine) VPURE;
 
 
 
@@ -45,9 +45,9 @@ namespace Core
 		@param		[OUT]
 		return 		分配的内存地址
 		*/
-		virtual void		Retrieve(void* pPtr) = 0;
+		virtual void		Retrieve(void* pPtr) VPURE;
 
 	};
 
-	using MemoryEBus = Core::EBus<IMemoryManager>;
+	using MemoryEBus = EBus<IMemoryManager>;
 }

@@ -25,6 +25,7 @@ file(
 	"${SRC_Path}/src/Module/*.h"
 	"${SRC_Path}/src/Module/*.cpp"
 	"${SRC_Path}/src/Memory/*.cpp"
+	"${SRC_Path}/src/Memory/*.h"
 	"${SRC_Path}/src/System/*.h"
 	"${SRC_Path}/src/System/*.cpp"
 	"${SRC_Path}/src/Reflect/*.h"

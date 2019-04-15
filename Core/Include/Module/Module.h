@@ -1,5 +1,6 @@
 #pragma once
 #include "MWCore.h"
+#include "Memory\MemoryDefine.h"
 
 namespace Core
 {
@@ -17,6 +18,7 @@ namespace Core
 }
 
 
-#   define INITIALIZATION_MODULE_CLASS(MODULE_CLASSNAME)                                \                                                           \
-    extern "C" extern DLL_EXPORTS  Core::Module * CreateModuleClass() { return MW_New MODULE_CLASSNAME; }  \
-    extern "C" extern DLL_EXPORTS  void DestroyModuleClass(Core::Module * module) { MW_Delete module; } 
+#   define INITIALIZATION_MODULE_CLASS(MODULE_CLASSNAME)                          \
+      extern "C" extern DLL_EXPORTS  Core::Module * CreateModuleClass() { return MW_New MODULE_CLASSNAME; }		\
+	  extern "C" extern DLL_EXPORTS  void DestroyModuleClass(Core::Module * module) { MW_Delete module; }                                                        \
+

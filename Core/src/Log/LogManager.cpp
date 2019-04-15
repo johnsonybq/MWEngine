@@ -1,7 +1,6 @@
 #include <direct.h>
 #include "LogManager.h"
 #include "System\ISystem.h"
-#include "Memory\MemoryDefine.h"
 using namespace std;
 
 namespace Core
@@ -23,8 +22,6 @@ namespace Core
 
 		m_pFile = CreateFileA("F:\\Code\\MWEngine\\WorkSpace\\Game.log", GENERIC_WRITE, FILE_SHARE_READ, 0, OPEN_ALWAYS, FILE_ATTRIBUTE_NORMAL, 0);
 		SetFilePointer(m_pFile, 0, 0, FILE_END);
-
-		 LogManager* pLog = MW_New LogManager();
 
 		return true;
 	}

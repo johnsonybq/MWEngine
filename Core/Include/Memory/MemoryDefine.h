@@ -10,40 +10,47 @@
 /************************************************************************/
 
 #pragma once
-#include "MemoryManager.h"
+#include "IMemoryManager.h"
+
+#pragma warning(disable:4595)
 #pragma warning(disable:4291)
-
-#ifdef _DEBUG
-
-
-static MemoryManager sMgr;
 
 #ifndef MW_New
 
-void*				AllocationMemory(size_t nSize, const char* pFile, int nLine);
 
-void				RetrieveMemory(void* pPtr);
-
-
-
-void*							operator new(std::size_t nSize, const char* pFile, int nLine);
-
-
-void*							operator new[](size_t nSize, const char* pFile, int nLine);
+inline void*							operator new(std::size_t nSize, const char* pFile, int nLine)
+	{
+		void* pVoid = nullptr;
+		Core::MemoryEBus::BroadcastResult(pVoid, &Core::IMemoryManager::Allocation, nSize, pFile, nLine);
+		return pVoid;
+	}
 
 
-void							operator delete(void* pPtr);
+inline void*							operator new[](size_t nSize, const char* pFile, int nLine)
+	{
+		void* pVoid = nullptr;
+		Core::MemoryEBus::BroadcastResult(pVoid, &Core::IMemoryManager::Allocation, nSize, pFile, nLine);
+
+		return pVoid;
+	}
 
 
-void							operator delete[](void* pPtr);
+inline	void							operator delete(void* pPtr)
+	{
+		Core::MemoryEBus::Broadcast(&Core::IMemoryManager::Retrieve, pPtr);
+	}
 
 
+inline void							operator delete[](void* pPtr)
+	{
+		Core::MemoryEBus::Broadcast(&Core::IMemoryManager::Retrieve, pPtr);
+	}
 
 
-void							SetOwner(const char* pFile, int nLine);
+inline	void							SetOwner(const char* pFile, int nLine)
+	{
 
-
-
+	}
 
 #define					MW_New			new( __FILE__, __LINE__ )
 #define					MW_Delete		( SetOwner( __FILE__, __LINE__ ), false ) ? SetOwner( "", 0 ) : delete
@@ -52,7 +59,7 @@ void							SetOwner(const char* pFile, int nLine);
 #define					MW_Malloc( nSize )		AllocationMemory( nSize, __FILE__, __LINE__ )
 #define					MW_Free( pPtr )		RetrieveMemory( pPtr )
 
-#endif // !MW_New
+
 
 
 

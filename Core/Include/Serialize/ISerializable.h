@@ -53,7 +53,7 @@ public:												\
 public:												\
 	static	const char* __GetClassName__()		{return #ClassName;}	\
 public:																		\
-	static void	RegisterReflect()	{Core::ReflectionEBus::Broadcast(&Core::IReflectManager::Register, #ClassName, MW_New Factory());}	\
+	static void	RegisterReflect()	{Core::ReflectionEBus::Broadcast(&Core::IReflectManager::Register, #ClassName, new Factory());}	\
 	static void SerializeReflect();					\
 	static void RegisterSerializeReflect() {ClassName::RegisterReflect(); ClassName::SerializeReflect();}								
 }
