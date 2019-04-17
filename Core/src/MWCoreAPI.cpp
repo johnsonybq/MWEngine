@@ -4,6 +4,7 @@
 #include "Module\ModuleManager.h"
 #include "Reflect\ReflectManager.h"
 #include "Serialize\SerializeManager.h"
+#include "Memory\MemoryManager.h"
 #include "Test.h"
 namespace Core
 {
@@ -21,6 +22,7 @@ namespace Core
 
 	bool	MWCoreAPI::Initialize()
 	{
+		MemoryManager::GetInstance()->Initialize();
 		System::GetInstance()->Initialize();
 		LogManager::GetInstance()->Initialize();
 		ReflectManager::GetInstance()->Initialize();

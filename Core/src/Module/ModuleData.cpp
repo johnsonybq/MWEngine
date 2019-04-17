@@ -40,6 +40,9 @@ namespace Core
 			return false;
 
 		m_pModule = createModuleFuc();
+		
+		if(m_pModule != nullptr)
+			m_pModule->Initialize();
 
 		return true;
 	}

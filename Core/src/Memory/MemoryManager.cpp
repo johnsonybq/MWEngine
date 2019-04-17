@@ -16,6 +16,7 @@ namespace Core
 
 	bool MemoryManager::Initialize()
 	{
+		MemoryEBus::pTest = new int;
 		MemoryEBus::BusConnect(this);
 		return true;
 	}
